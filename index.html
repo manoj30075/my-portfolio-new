@@ -193,26 +193,26 @@ Graduated: June 2017`,
 - Developed mobile apps used by over a million users.`,
         skills: `<span class="color-cyan">Skills:</span>
 
-<span class="color-green">Languages:</span> TypeScript, JavaScript, Python, Java, Rust, C#, C, MATLAB, SQL, NoSQL, Bash, HTML/CSS
+<span class="color-green">Languages:</span> TypeScript, JavaScript, Python, Java, SQL, NoSQL, Bash, HTML/CSS
 
-<span class="color-green">Frameworks:</span> ReactJS, AngularJS, .NET, Django, Flask, Node.js
+<span class="color-green">Frameworks:</span> ReactJS, AngularJS, Node.js, Django, Flask
 
-<span class="color-green">Tools:</span> Git, Kubernetes, Kafka, Jira, PostgreSQL, MySQL, MongoDB, Grafana, Prometheus`,
+<span class="color-green">Tools:</span> Git, Kubernetes, Kafka, PostgreSQL, MySQL, MongoDB`,
         projects: `<span class="color-cyan">Projects:</span>
 
-<span class="color-green">What If Scenario Explorer</span>
+<span class="color-green">Divergent Paths</span>
 Role: Full Stack Developer
 An interactive web application that explores "What If" scenarios.
 Technologies: React, TypeScript, Node.js, OpenAI API
-<a href="https://github.com/manoj30075/what-if-scenario-explorer" target="_blank" class="color-blue">View on GitHub</a>`,
+<a href="https://github.com/manoj30075/the-road-not-taken" target="_blank" class="color-blue">View on GitHub</a>`,
         contact: `<span class="color-cyan">Contact Information:</span>
 
-<span class="color-green">Email:</span> <a href="mailto:mp6112@rit.edu" class="color-blue">mp6112@rit.edu</a>
+<span class="color-green">Email:</span> <a href="mailto:manojpls@icloud.com" class="color-blue">mp6112@rit.edu</a>
 <span class="color-green">GitHub:</span> <a href="https://github.com/manoj30075" target="_blank" class="color-blue">github.com/manoj30075</a>
 <span class="color-green">LinkedIn:</span> <a href="https://linkedin.com/in/manojpls" target="_blank" class="color-blue">linkedin.com/in/manojpls</a>
 <span class="color-green">Mobile:</span> (585)-537-9175
 <span class="color-green">Location:</span> Buffalo, NY
-<span class="color-green">Website:</span> <a href="https://manojp.me" target="_blank" class="color-blue">manojp.me</a>`
+`
     };
 
     // Commands and their outputs
@@ -241,6 +241,7 @@ Technologies: React, TypeScript, Node.js, OpenAI API
             const input = terminalInput.value.trim();
             processCommand(input);
             terminalInput.value = '';
+            terminalInput.blur();
         }
     });
 
