@@ -1,299 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Manoj Palasamudram</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Favicon -->
-    <link rel="icon" href="https://img.icons8.com/fluency/48/000000/source-code.png">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Fira+Code:400,500&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <!-- Custom CSS -->
-    <style>
-        /* Base Styles */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Fira Code', monospace;
-            background-color: #0d0d0d;
-            color: #e6e6e6;
-        }
-        a {
-            color: #00afff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        /* Terminal Window */
-        .terminal {
-            max-width: 800px;
-            margin: 50px auto;
-            background-color: #1e1e1e;
-            border-radius: 5px;
-            box-shadow: 0 0 10px #000;
-            overflow: hidden;
-        }
-        .terminal-header {
-            display: flex;
-            align-items: center;
-            padding: 5px 10px;
-            background-color: #2d2d2d;
-        }
-        .terminal-header .buttons {
-            display: flex;
-            gap: 5px;
-        }
-        .terminal-header .buttons span {
-            display: block;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-        .terminal-header .buttons .close {
-            background-color: #ff5f56;
-        }
-        .terminal-header .buttons .minimize {
-            background-color: #ffbd2e;
-        }
-        .terminal-header .buttons .maximize {
-            background-color: #27c93f;
-        }
-        .terminal-body {
-            padding: 20px;
-            min-height: 400px;
-            position: relative;
-            overflow-y: auto;
-        }
-        /* Prompt */
-        .prompt {
-            display: flex;
-            align-items: center;
-        }
-        .prompt .path {
-            color: #6a9955;
-        }
-        .prompt .dollar {
-            color: #569cd6;
-            margin-right: 10px;
-        }
-        .input-area {
-            flex: 1;
-        }
-        .input-area input {
-            background: none;
-            border: none;
-            outline: none;
-            color: #e6e6e6;
-            font-family: inherit;
-            font-size: 1em;
-            width: 100%;
-        }
-        /* Output */
-        .output {
-            margin-bottom: 20px;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-        /* Colored Text */
-        .color-green {
-            color: #6a9955;
-        }
-        .color-blue {
-            color: #569cd6;
-        }
-        .color-yellow {
-            color: #dcdcaa;
-        }
-        .color-cyan {
-            color: #4ec9b0;
-        }
-        .color-magenta {
-            color: #c586c0;
-        }
-        .color-red {
-            color: #f44747;
-        }
-        /* Mobile Responsive */
-        @media (max-width: 600px) {
-            .terminal {
-                margin: 20px;
-            }
-            .terminal-body {
-                padding: 15px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manoj Palasamudram</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Fira+Code:400,500&display=swap" rel="stylesheet">
+  <style>
+    /* Theme Variables */
+    :root { 
+      --bg: #121212;
+      --text: #e0e0e0;
+      --accent: #64ffda;
+      --border: #333;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Fira Code', monospace;
+      background: var(--bg);
+      color: var(--text);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+    .header-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: var(--accent);
+    }
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    h2 {
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.3rem;
+      color: var(--accent);
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    ul li {
+      margin: 0.5rem 0;
+    }
+    ul li::before {
+      content: "▹";
+      margin-right: 0.5rem;
+      color: var(--accent);
+    }
+  </style>
 </head>
 <body>
-
-<!-- Terminal Window -->
-<div class="terminal">
-    <!-- Terminal Header -->
-    <div class="terminal-header">
-        <div class="buttons">
-            <span class="close"></span>
-            <span class="minimize"></span>
-            <span class="maximize"></span>
-        </div>
+  <header>
+    <div class="header-container">
+      <h1>Manoj Palasamudram</h1>
     </div>
-    <!-- Terminal Body -->
-    <div class="terminal-body" id="terminal-body">
-        <div id="content">
-            <!-- Dynamic content will be injected here -->
-        </div>
-        <!-- Input Prompt -->
-        <div class="prompt">
-            <span class="path">[manoj@portfolio]</span>
-            <span class="dollar">$</span>
-            <div class="input-area">
-                <input type="text" id="terminal-input" autofocus autocomplete="off">
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- JavaScript -->
-<script>
-    const terminalBody = document.getElementById('terminal-body');
-    const terminalInput = document.getElementById('terminal-input');
-    const content = document.getElementById('content');
-
-    // Outputs for commands
-    const outputs = {
-        help: `<span class="color-green">Available commands:</span>
-- help (h)
-- about (a)
-- education (edu)
-- experience (exp)
-- skills (s)
-- projects (p)
-- contact (c)
-- clear (cls)`,
-        about: `<span class="color-yellow">Hi! I'm Manoj, a Software Engineer with over three years of experience. I love building scalable web applications and working across the full stack. I'm excited to take on challenging roles where I can contribute and grow.</span>`,
-        education: `<span class="color-cyan">Education:</span>
-
-<span class="color-green">Rochester Institute of Technology</span>
-Master of Science in Computer Science (GPA: 3.59)
-Graduated: December 2023
-
-<span class="color-green">Visvesvaraya Technological University</span>
-Bachelor of Engineering in Electrical, Electronics and Communications Engineering
-Graduated: June 2017`,
-        experience: `<span class="color-cyan">Work Experience:</span>
-
-<span class="color-green">Software Engineer at London Stock Exchange Group</span> <span class="color-blue">(Jan 2024 - Present)</span>
-- Developed VSCode and JupyterLab extensions to enhance developer experience.
-
-<span class="color-green">Software Development Engineer at Vymo</span> <span class="color-blue">(May 2018 - July 2021)</span>
-- Built frontend applications with React and TypeScript.
-- Optimized APIs for performance.
-- Developed mobile apps used by over a million users.`,
-        skills: `<span class="color-cyan">Skills:</span>
-
-<span class="color-green">Languages:</span> TypeScript, JavaScript, Python, Java, SQL, NoSQL, Bash, HTML/CSS
-
-<span class="color-green">Frameworks:</span> ReactJS, AngularJS, Node.js, Django, Flask
-
-<span class="color-green">Tools:</span> Git, Kubernetes, Kafka, PostgreSQL, MySQL, MongoDB`,
-        projects: `<span class="color-cyan">Projects:</span>
-
-<span class="color-green">Divergent Paths</span>
-Role: Full Stack Developer
-An interactive web application that explores "What If" scenarios.
-Technologies: React, TypeScript, Node.js, OpenAI API
-<a href="https://github.com/manoj30075/the-road-not-taken" target="_blank" class="color-blue">View on GitHub</a>`,
-        contact: `<span class="color-cyan">Contact Information:</span>
-
-<span class="color-green">Email:</span> <a href="mailto:manojpls@icloud.com" class="color-blue">mp6112@rit.edu</a>
-<span class="color-green">GitHub:</span> <a href="https://github.com/manoj30075" target="_blank" class="color-blue">github.com/manoj30075</a>
-<span class="color-green">LinkedIn:</span> <a href="https://linkedin.com/in/manojpls" target="_blank" class="color-blue">linkedin.com/in/manojpls</a>
-<span class="color-green">Mobile:</span> (585)-537-9175
-<span class="color-green">Location:</span> Buffalo, NY
-`
-    };
-
-    // Commands and their outputs
-    const commands = {
-        help: { output: outputs.help },
-        h: { output: outputs.help },
-        about: { output: outputs.about },
-        a: { output: outputs.about },
-        education: { output: outputs.education },
-        edu: { output: outputs.education },
-        experience: { output: outputs.experience },
-        exp: { output: outputs.experience },
-        skills: { output: outputs.skills },
-        s: { output: outputs.skills },
-        projects: { output: outputs.projects },
-        p: { output: outputs.projects },
-        contact: { output: outputs.contact },
-        c: { output: outputs.contact },
-        clear: { clear: true },
-        cls: { clear: true }
-    };
-
-    // Handle user input
-    terminalInput.addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
-            const input = terminalInput.value.trim();
-            processCommand(input);
-            terminalInput.value = '';
-            terminalInput.blur();
-        }
-    });
-
-    function processCommand(input) {
-        if (input.length === 0) return;
-
-        // Display the command
-        const commandLine = document.createElement('div');
-        commandLine.innerHTML = `<span class="path">[manoj@portfolio]</span> <span class="dollar">$</span> ${input}`;
-        content.appendChild(commandLine);
-
-        // Process the command
-        const command = commands[input.toLowerCase()];
-        if (command) {
-            if (command.clear) {
-                content.innerHTML = '';
-            } else {
-                const output = document.createElement('div');
-                output.classList.add('output');
-                output.innerHTML = command.output;
-                content.appendChild(output);
-            }
-        } else {
-            const output = document.createElement('div');
-            output.classList.add('output');
-            output.innerHTML = `<span class="color-red">Command not found: ${input}\nType 'help' to see available commands.</span>`;
-            content.appendChild(output);
-        }
-
-        // Scroll to bottom
-        terminalBody.scrollTop = terminalBody.scrollHeight;
-    }
-
-    // Initial welcome message
-    function initTerminal() {
-        const welcomeMessage = `<span class="color-green">Welcome to Manoj's Portfolio Terminal!</span>
-Available commands:
-- <span class="color-yellow">about (a)</span>
-- <span class="color-yellow">education (edu)</span>
-- <span class="color-yellow">experience (exp)</span>
-- <span class="color-yellow">skills (s)</span>
-- <span class="color-yellow">projects (p)</span>
-- <span class="color-yellow">contact (c)</span>
-Type the command to view more information, or type '<span class="color-yellow">help</span>' for all commands.`;
-        const output = document.createElement('div');
-        output.classList.add('output');
-        output.innerHTML = welcomeMessage;
-        content.appendChild(output);
-    }
-
-    // Initialize
-    initTerminal();
-</script>
+  </header>
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Hi, I'm Manoj, a Software Engineer with over three years of experience building scalable web applications across the full stack. I'm passionate about clean code, intuitive UX, and continuous learning.</p>
+    </section>
+    <section id="experience">
+      <h2>Experience</h2>
+      <ul>
+        <li><strong>Software Engineer</strong> @ London Stock Exchange Group (Jan 2024 - Present)</li>
+        <li><strong>Software Development Engineer</strong> @ Vymo (May 2018 - Jul 2021)</li>
+      </ul>
+    </section>
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>Languages: TypeScript, JavaScript, Python, Java, SQL, NoSQL, Bash</li>
+        <li>Frameworks: React, Angular, Node.js, Django, Flask</li>
+        <li>Tools: Git, Kubernetes, Kafka, PostgreSQL, MongoDB</li>
+      </ul>
+    </section>
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul>
+        <li><strong>Divergent Paths</strong>: Interactive web app exploring "What If" scenarios. <a href="https://github.com/manoj30075/the-road-not-taken" target="_blank">GitHub</a></li>
+      </ul>
+    </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <ul>
+        <li>Email: <a href="mailto:manojpls@icloud.com">manojpls@icloud.com</a></li>
+        <li>GitHub: <a href="https://github.com/manoj30075" target="_blank">github.com/manoj30075</a></li>
+        <li>LinkedIn: <a href="https://linkedin.com/in/manojpls" target="_blank">linkedin.com/in/manojpls</a></li>
+        <li>Location: Buffalo, NY</li>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>
