@@ -1,602 +1,364 @@
-/* style.css */
+/* style.css - Minimalist Apple-Inspired Redesign */
 
-/* --- Variables and Global Styles --- */
+/* --- Google Font Import (Inter) --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* --- CSS Variables --- */
 :root {
-    --primary-bg: #1a1a1a; /* Dark background */
-    --secondary-bg: #2c2c2c; /* Slightly lighter dark for cards/sections */
-    --text-color: #e0e0e0; /* Light grey for text */
-    --primary-accent: #64ffda; /* A vibrant accent color (teal/aqua) */
-    --secondary-accent: #ffab70; /* A warmer accent for contrast */
-    --border-color: #444;
-    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    --card-hover-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    --font-primary: 'Fira Code', monospace; /* From existing HTML */
-    --font-secondary: 'Roboto', sans-serif; /* For body text - more readable */
-    --animation-duration-fast: 0.3s;
-    --animation-duration-medium: 0.5s;
-    --animation-duration-slow: 0.8s;
+    /* Theme & Colors */
+    --bg-color: #ffffff; /* Clean white background */
+    --text-color-primary: #1d1d1f; /* Apple's primary dark text */
+    --text-color-secondary: #515154; /* Apple's secondary grey text */
+    --text-color-tertiary: #86868b; /* Lighter grey for less emphasis */
+    --accent-color: #007aff; /* Apple's classic blue for links/accents */
+    --border-color-soft: #d2d2d7; /* Soft border color */
+    --border-color-hairline: rgba(0,0,0,0.15); /* Very subtle border */
+    --section-bg-subtle: #f5f5f7; /* Optional subtle bg for sections if needed */
+
+    /* Typography */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    
+    /* Spacing - General units, can be scaled with rem/em or used as multipliers */
+    --space-unit: 8px; /* Base unit for spacing */
+    --space-xs: var(--space-unit);      /* 8px */
+    --space-sm: calc(var(--space-unit) * 2);  /* 16px */
+    --space-md: calc(var(--space-unit) * 3);  /* 24px */
+    --space-lg: calc(var(--space-unit) * 5);  /* 40px */
+    --space-xl: calc(var(--space-unit) * 8);  /* 64px */
+    --space-xxl: calc(var(--space-unit) * 12); /* 96px */
+
+    /* Transitions (for later use with animations) */
+    --transition-duration: 0.3s;
+    --transition-timing: ease-in-out;
+
+    /* Shadows (use sparingly) */
+    --shadow-subtle: 0 1px 2px rgba(0,0,0,0.03), 0 2px 5px rgba(0,0,0,0.03);
 }
 
+/* --- Global Reset & Base Styles --- */
 html {
     scroll-behavior: smooth;
-    box-sizing: border-box; /* Better box model */
+    box-sizing: border-box;
+    font-size: 100%; /* Base for rem units, usually 16px */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 *, *:before, *:after {
     box-sizing: inherit;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
-    font-family: var(--font-secondary);
-    background-color: var(--primary-bg);
-    color: var(--text-color);
-    line-height: 1.6;
-    font-size: 16px; /* Base font size */
-    overflow-x: hidden; /* Prevent horizontal scrollbars during animations */
+    font-family: var(--font-sans);
+    background-color: var(--bg-color);
+    color: var(--text-color-primary);
+    line-height: 1.65; /* Generous line height */
+    font-weight: 400; /* Inter regular */
+    font-size: 1.0625rem; /* Approx 17px, common in Apple's UI */
+    overflow-x: hidden;
 }
-
-/* --- Animations Keyframes --- */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeInRight {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes popIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    80% {
-        opacity: 1;
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
 
 /* --- Typography --- */
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-primary);
-    color: var(--primary-accent);
-    margin-top: 0;
-    margin-bottom: 1rem; /* Consistent spacing */
+    font-family: var(--font-sans);
+    font-weight: 600; /* Inter semibold for headings */
+    color: var(--text-color-primary);
+    line-height: 1.3;
+    margin-bottom: var(--space-md); /* Default bottom margin for headings */
 }
 
 h1 {
-    font-size: 2.8rem; /* Larger for hero */
-    text-align: center;
-    margin-bottom: 0.5rem;
+    font-size: 2.75rem; /* Approx 44px */
+    font-weight: 700; /* Inter bold */
+    letter-spacing: -0.02em; /* Subtle tightening */
+    margin-bottom: var(--space-sm);
 }
 
-h2 {
-    font-size: 2rem;
-    border-bottom: 2px solid var(--primary-accent);
-    padding-bottom: 0.5rem;
-    margin-bottom: 2rem; /* Space below section titles */
-    text-transform: uppercase;
-    letter-spacing: 1px;
+h2 { /* Section titles */
+    font-size: 1.75rem; /* Approx 28px */
+    font-weight: 600; /* Inter semibold */
+    color: var(--text-color-primary);
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--border-color-hairline); /* Very subtle separator */
 }
 
-h3 {
-    font-size: 1.5rem;
-    color: var(--secondary-accent);
-}
-
-h4 {
-    font-size: 1.2rem;
-    color: var(--text-color);
+h3 { /* Sub-headings within sections, e.g., job titles */
+    font-size: 1.25rem; /* Approx 20px */
+    font-weight: 500; /* Inter medium */
+    color: var(--text-color-primary);
+    margin-bottom: var(--space-xs);
 }
 
 p {
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-md);
+    color: var(--text-color-secondary); /* Slightly lighter for body text */
+}
+section p:last-of-type { /* No bottom margin for last p in a section for cleaner spacing */
+   margin-bottom: 0;
+}
+section article p:last-of-type { /* Keep margin for last p in an article if needed */
+    margin-bottom: var(--space-md); 
 }
 
+
 a {
-    color: var(--primary-accent);
+    color: var(--accent-color);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color var(--transition-duration) var(--transition-timing);
 }
 
 a:hover, a:focus {
-    color: var(--secondary-accent);
-    text-decoration: underline; /* Or remove if design dictates */
-    outline: 2px solid var(--secondary-accent); /* Focus indicator */
+    color: #0056b3; /* Darker blue on hover */
+    text-decoration: underline;
 }
 
-ul {
+ul { /* For contact list, etc. */
     list-style: none;
     padding-left: 0;
 }
 
 /* --- Layout & Container --- */
 main {
-    max-width: 1000px; /* Max content width */
-    margin: 0 auto; /* Center content */
-    padding: 2rem 1.5rem; /* Padding around main content */
+    max-width: 960px; /* Comfortable max width */
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-md); /* Generous padding */
 }
 
 section {
-    padding: 3rem 1rem; /* Vertical padding for sections */
-    margin-bottom: 3rem; /* Space between sections */
-    background-color: var(--secondary-bg);
-    border-radius: 8px; /* Rounded corners for sections */
-    box-shadow: var(--card-shadow);
-    transition: transform var(--animation-duration-fast) ease, box-shadow var(--animation-duration-fast) ease;
-    /* Base for scroll animations - will be overridden by JS or specific classes */
-    opacity: 0; /* Initially hidden for JS-triggered animation */
-    transform: translateY(20px); /* Initial state for JS-triggered animation */
+    padding: var(--space-xl) 0; /* Vertical padding, horizontal handled by main or specific needs */
+    margin-bottom: var(--space-lg); /* Space between sections */
+    /* Sections are primarily separated by space. No background or heavy borders. */
 }
-
-section.visible { /* Class to be added by JS */
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity var(--animation-duration-medium) ease-out, transform var(--animation-duration-medium) ease-out;
+section:last-of-type {
+    margin-bottom: 0;
 }
-
-
-section:hover {
-    transform: translateY(-5px); /* Subtle lift effect */
-}
-
 
 /* --- Header & Navigation --- */
 header {
-    background-color: var(--primary-bg);
+    background-color: var(--bg-color);
     position: sticky;
     top: 0;
     z-index: 1000;
-    padding: 1rem 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    border-bottom: 1px solid var(--border-color);
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--border-color-hairline); /* Subtle separation */
+    box-shadow: var(--shadow-subtle); /* Very light shadow */
 }
 
 header nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
-    /* Animation for nav items */
 }
 
 header nav ul li {
-    margin: 0 1rem;
-    opacity: 0;
-    animation: fadeInDown var(--animation-duration-medium) ease-out forwards;
+    margin: 0 var(--space-sm);
 }
-
-/* Stagger animation for nav links */
-header nav ul li:nth-child(1) { animation-delay: 0.1s; }
-header nav ul li:nth-child(2) { animation-delay: 0.2s; }
-header nav ul li:nth-child(3) { animation-delay: 0.3s; }
-header nav ul li:nth-child(4) { animation-delay: 0.4s; }
-header nav ul li:nth-child(5) { animation-delay: 0.5s; }
-header nav ul li:nth-child(6) { animation-delay: 0.6s; }
-
 
 header nav ul li a {
-    font-family: var(--font-primary);
-    font-size: 1rem;
-    text-transform: uppercase;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: background-color var(--animation-duration-fast) ease, color var(--animation-duration-fast) ease;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem; /* Approx 15px */
+    font-weight: 500; /* Inter medium */
+    color: var(--text-color-secondary);
+    text-decoration: none;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 6px; /* Subtle rounding */
+    transition: color var(--transition-duration) var(--transition-timing), background-color var(--transition-duration) var(--transition-timing);
 }
 
-header nav ul li a:hover, header nav ul li a.active {
-    background-color: var(--primary-accent);
-    color: var(--primary-bg);
+header nav ul li a:hover,
+header nav ul li a:focus,
+header nav ul li a.active { /* For JS active link highlighting */
+    color: var(--text-color-primary);
+    background-color: rgba(0,0,0,0.05); /* Very subtle hover background */
     text-decoration: none;
 }
 
 /* --- Hero Section --- */
-#hero { /* Will be animated by JS as it's a section */
+#hero {
     text-align: center;
-    padding: 4rem 1rem; /* More padding for hero */
-    background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
-    border-radius: 0 0 8px 8px; /* Only round bottom if header is separate */
+    padding: var(--space-xxl) 0 var(--space-xl) 0; /* More top padding */
+    margin-bottom: var(--space-xl);
 }
+
 #hero h1 {
-    animation: fadeInUp var(--animation-duration-medium) ease-out 0.5s forwards;
-    opacity: 0; /* Start hidden for animation */
+    font-size: 3.25rem; /* Adjusted from 3.5rem */
+    margin-bottom: var(--space-xs);
 }
 
-#hero p {
-    font-size: 1.2rem;
-    color: var(--text-color);
-    opacity: 0; /* Start hidden for animation */
-    animation: fadeInUp var(--animation-duration-medium) ease-out 0.8s forwards;
+#hero p { /* Tagline */
+    font-size: 1.375rem; /* Adjusted from 1.5rem */
+    font-weight: 400; /* Inter regular */
+    color: var(--text-color-secondary);
+    margin-bottom: 0;
 }
 
-/* --- Section Specific Styling --- */
-/* Adding classes for elements that should animate within sections when section becomes visible */
-/* These will be targeted by JS or specific section visibility CSS */
-
-.animated-item {
-    opacity: 0; /* Initially hidden */
-    transition: opacity var(--animation-duration-medium) ease-out var(--animation-duration-fast), transform var(--animation-duration-medium) ease-out var(--animation-duration-fast);
+/* --- About Section --- */
+#about {
+    text-align: left; /* Or center if preferred for short bio */
+}
+#about p {
+    font-size: 1.125rem; /* Approx 18px */
+    color: var(--text-color-primary); /* Primary for bio text */
+    line-height: 1.7;
 }
 
-/* Different types of animations for items */
-.animate-fadeInUp { transform: translateY(20px); }
-.animate-fadeInLeft { transform: translateX(-20px); }
-.animate-fadeInRight { transform: translateX(20px); }
-.animate-popIn { transform: scale(0.9); }
-
-section.visible .animated-item {
-    opacity: 1;
-    transform: translateY(0) translateX(0) scale(1);
+/* --- Contact Section --- */
+#contact ul li {
+    margin-bottom: var(--space-sm);
+    font-size: 1.125rem;
+}
+#contact ul li a {
+    font-weight: 500; /* Inter medium */
 }
 
-/* Stagger children animations if needed (example for .job-entry or .project-entry children) */
-section.visible .job-entry, section.visible .project-entry, section.visible .education-entry, section.visible .skill-category {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp var(--animation-duration-medium) ease-out forwards;
-}
-
-section.visible .job-entry:nth-child(odd), section.visible .project-entry:nth-child(odd) { animation-name: fadeInLeft; }
-section.visible .job-entry:nth-child(even), section.visible .project-entry:nth-child(even) { animation-name: fadeInRight; }
-
-
-/* Staggering for cards within sections */
-section.visible .job-entry,
-section.visible .project-entry,
-section.visible .education-entry,
-section.visible .skill-category {
-    opacity: 0; /* Start hidden */
-    transform: translateY(30px); /* Initial position for fadeInUp */
-    /* The actual animation will be applied by JS adding a class or through staggered CSS like below */
-}
-
-/* Example of staggered animation for items within a visible section */
-section.visible .card-animate:nth-child(1) { animation: fadeInUp var(--animation-duration-medium) ease-out 0.2s forwards; }
-section.visible .card-animate:nth-child(2) { animation: fadeInUp var(--animation-duration-medium) ease-out 0.4s forwards; }
-section.visible .card-animate:nth-child(3) { animation: fadeInUp var(--animation-duration-medium) ease-out 0.6s forwards; }
-/* Add more if needed */
-
-
-/* Apply .card-animate to actual elements in HTML if this approach is chosen over direct JS manipulation for staggering */
-#education .education-entry,
-#experience .job-entry,
-#projects .project-entry,
-#skills .skill-category {
-    /* Base transition for hover, already defined */
-    /* These will now be animated by the .card-animate rule or specific section.visible rules */
-}
-
-/* About Me & Contact Info */
-#about, #contact-info {
-    background-color: var(--secondary-bg); /* Consistent section background */
-}
-
-#contact-info ul li {
-    margin-bottom: 0.75rem;
-    font-size: 1.1rem;
-}
-#contact-info ul li a {
-    font-weight: 500; /* Fira Code medium */
-}
-
-/* Education */
-#education .education-entry {
-    background-color: var(--primary-bg); /* Slightly darker card */
-    padding: 1.5rem;
-    border-radius: 6px;
-    margin-bottom: 1.5rem;
-    border-left: 4px solid var(--primary-accent);
-}
-
-#education .education-entry h3 {
-    margin-bottom: 0.25rem;
-}
-
+/* --- Education Section --- */
 #education .education-entry p {
-    margin-bottom: 0.25rem;
-    font-size: 0.95rem;
+    font-size: 1rem; /* Approx 16px */
+    color: var(--text-color-secondary);
+    margin-bottom: var(--space-xs); /* Tighter spacing for education lines */
+}
+#education .education-entry p:last-child {
+    margin-bottom: 0;
 }
 
-#education .education-entry h4 {
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    color: var(--primary-accent);
+/* --- Skills Section --- */
+#skills .skills-condensed p {
     font-size: 1rem;
+    color: var(--text-color-secondary);
+    margin-bottom: var(--space-xs); /* Tighter spacing */
 }
 
-#education .education-entry ul li {
-    font-size: 0.9rem;
-    margin-bottom: 0.2rem;
-    padding-left: 1rem;
-    position: relative;
+#skills .skills-condensed strong {
+    font-weight: 500; /* Inter medium */
+    color: var(--text-color-primary);
 }
 
-#education .education-entry ul li::before {
-    content: "▹";
-    position: absolute;
-    left: 0;
-    color: var(--primary-accent);
-}
-
-
-/* Skills Section */
-#skills h2 {
-    margin-bottom: 2.5rem; /* More space for category layout */
-}
-.skill-category {
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    background-color: var(--primary-bg);
-    border-radius: 6px;
-    border: 1px solid var(--border-color);
-}
-
-.skill-category h4 {
-    color: var(--secondary-accent);
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 0.5rem;
-}
-
-.skill-category ul {
-    display: flex;
-    flex-wrap: wrap; /* Allow skills to wrap */
-    gap: 0.75rem; /* Space between skill items */
-    padding-left: 0;
-}
-
-.skill-category ul li {
-    background-color: var(--secondary-bg);
-    color: var(--text-color);
-    padding: 0.5rem 1rem;
-    border-radius: 20px; /* Pill shape */
-    font-size: 0.9rem;
-    border: 1px solid var(--border-color);
-    transition: background-color var(--animation-duration-fast) ease, color var(--animation-duration-fast) ease, transform var(--animation-duration-fast) ease;
-    /* For pop-in animation if skill items are animated individually */
-    opacity: 0;
-    transform: scale(0.5);
-    animation: popIn var(--animation-duration-fast) ease-out forwards;
-}
-
-/* Stagger skill items animation */
-.skill-category ul li:nth-child(1) { animation-delay: 0.1s; }
-.skill-category ul li:nth-child(2) { animation-delay: 0.15s; }
-.skill-category ul li:nth-child(3) { animation-delay: 0.2s; }
-.skill-category ul li:nth-child(4) { animation-delay: 0.25s; }
-.skill-category ul li:nth-child(5) { animation-delay: 0.3s; }
-.skill-category ul li:nth-child(6) { animation-delay: 0.35s; }
-.skill-category ul li:nth-child(7) { animation-delay: 0.4s; }
-.skill-category ul li:nth-child(8) { animation-delay: 0.45s; }
-.skill-category ul li:nth-child(9) { animation-delay: 0.5s; }
-.skill-category ul li:nth-child(10) { animation-delay: 0.55s; }
-/* Add more if categories have more skills. This is for when the .skill-category becomes visible */
-
-
-.skill-category ul li:hover {
-    background-color: var(--primary-accent);
-    color: var(--primary-bg);
-    transform: scale(1.08); /* Slightly more pop on hover */
-}
-
-
-/* Experience & Projects Section */
+/* --- Experience & Projects Sections --- */
 .job-entry, .project-entry {
-    background-color: var(--primary-bg); /* Darker card background */
-    padding: 2rem;
-    margin-bottom: 2rem;
-    border-radius: 8px;
-    border-left: 5px solid var(--secondary-accent); /* Accent border */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    transition: box-shadow var(--animation-duration-fast) ease, transform var(--animation-duration-fast) ease;
-    /* These will be animated by section.visible .job-entry etc. rules */
+    margin-bottom: var(--space-lg); /* Space between entries */
+    padding-bottom: var(--space-lg); /* Space below entry before next one or section end */
+    border-bottom: 1px solid var(--border-color-hairline); /* Subtle separator for entries */
+}
+.job-entry:last-child, .project-entry:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
-.job-entry:hover, .project-entry:hover {
-    box-shadow: var(--card-hover-shadow);
-    transform: translateY(-6px); /* Increased hover effect */
+.job-entry h3, .project-entry h3 { /* Title of job/project */
+    font-size: 1.375rem; /* Approx 22px */
+    margin-bottom: var(--space-xs);
 }
 
-.job-entry h3, .project-entry h3 {
-    margin-bottom: 0.25rem;
+/* Company name / Project role, etc. */
+.job-entry p:nth-of-type(1), /* Specific to current HTML structure for company */
+.project-entry p:nth-of-type(1) { /* Specific to current HTML structure for description */
+    font-size: 1rem;
+    font-weight: 500; /* Inter medium */
+    color: var(--text-color-secondary); /* Or primary if more emphasis needed */
+    margin-bottom: var(--space-sm);
 }
 
-.job-entry p, .project-entry p {
-    margin-bottom: 0.5rem;
-    font-size: 0.95rem;
-    line-height: 1.5;
+/* Descriptions */
+.job-entry p:nth-of-type(2), /* Specific to current HTML structure for description */
+.project-entry p a { /* Style the link within the project description */
+    font-size: 1rem;
+    color: var(--text-color-secondary);
 }
-.job-entry p:first-of-type, .project-entry p:first-of-type { /* Company/Location/Role */
-    font-weight: 500; /* Fira Code medium */
-    color: var(--text-color);
-    opacity: 0.9;
+.project-entry p a { /* Override default link color for project link if needed */
+    color: var(--accent-color);
+    font-weight: 500;
 }
-
-
-.job-entry ul, .project-entry ul { /* For responsibilities/details */
-    padding-left: 1.5rem; /* Indent list items */
-    margin-top: 1rem;
+.project-entry p a:hover {
+    color: #0056b3;
 }
 
-.job-entry ul li, .project-entry ul li {
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-    list-style-type: disc; /* Or custom bullet */
-}
-.job-entry ul li::marker, .project-entry ul li::marker {
-    color: var(--primary-accent);
-}
-
-
-.project-entry a { /* Specific styling for project links */
-    display: inline-block; /* Allows padding and margin */
-    margin-top: 0.5rem;
-    padding: 0.5rem 1rem;
-    background-color: var(--primary-accent);
-    color: var(--primary-bg);
-    border-radius: 4px;
-    font-weight: 500; /* Fira Code medium */
-    transition: background-color var(--animation-duration-fast) ease, transform var(--animation-duration-fast) ease;
-}
-
-.project-entry a:hover {
-    background-color: var(--secondary-accent);
-    text-decoration: none;
-    transform: translateY(-3px); /* Increased hover effect */
-}
 
 /* --- Footer --- */
 footer {
     text-align: center;
-    padding: 2rem 1rem;
-    background-color: var(--primary-bg);
-    border-top: 1px solid var(--border-color);
-    margin-top: 3rem; /* Space above footer */
-    opacity: 0; /* For fade in animation */
-    animation: fadeIn var(--animation-duration-slow) ease-out 1s forwards; /* Simple fade in for footer */
+    padding: var(--space-lg) var(--space-md);
+    margin-top: var(--space-xl);
+    border-top: 1px solid var(--border-color-hairline);
 }
 
 footer p {
+    font-size: 0.875rem; /* Approx 14px */
+    color: var(--text-color-tertiary);
     margin: 0;
-    font-size: 0.9rem;
-    color: var(--text-color);
-    opacity: 0.8; /* This opacity is fine, the parent footer handles initial animation opacity */
 }
 
 /* --- Responsive Design --- */
+@media (max-width: 768px) { /* Tablet and mobile */
+    body {
+        font-size: 1rem; /* Base 16px for mobile */
+    }
 
-/* Tablets and smaller desktops */
-@media (max-width: 992px) {
-    h1 { font-size: 2.5rem; }
-    h2 { font-size: 1.8rem; }
-    main { padding: 2rem 1rem; }
-    section { padding: 2.5rem 0.75rem; }
-}
+    h1 { font-size: 2.25rem; } /* Approx 36px */
+    #hero h1 { font-size: 2.75rem; } /* Approx 44px, slightly smaller */
+    #hero p { font-size: 1.25rem; } /* Approx 20px */
+    h2 { font-size: 1.5rem; } /* Approx 24px */
+    h3 { font-size: 1.125rem; } /* Approx 18px */
 
-/* Mobile devices */
-@media (max-width: 768px) {
-    body { font-size: 15px; }
-    h1 { font-size: 2.2rem; }
-    h2 { font-size: 1.6rem; margin-bottom: 1.5rem;}
-    h3 { font-size: 1.3rem; }
+    main {
+        padding: var(--space-lg) var(--space-sm);
+    }
+
+    section {
+        padding: var(--space-lg) 0;
+    }
 
     header nav ul {
-        flex-direction: column; /* Stack nav items */
-        gap: 0.5rem;
+        /* Consider hamburger menu for very small screens if needed, but for few items, flex-wrap might be okay */
+        flex-wrap: wrap; /* Allow nav items to wrap */
+        justify-content: center;
+        gap: var(--space-xs);
     }
     header nav ul li {
-        margin: 0.25rem 0;
+        margin: 0 var(--space-xs);
     }
     header nav ul li a {
-        display: block; /* Make links take full width for easier tapping */
-        padding: 0.6rem 1rem;
-    }
-
-    #hero { padding: 3rem 0.5rem; }
-    main { padding: 1.5rem 0.5rem; } /* Less padding on mobile */
-    section { padding: 2rem 0.5rem; margin-bottom: 2rem; }
-
-    .job-entry, .project-entry {
-        padding: 1.5rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .skill-category ul {
-        justify-content: center; /* Center skill pills */
-        gap: 0.5rem;
-    }
-    .skill-category ul li {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.85rem;
+        padding: var(--space-xs);
+        font-size: 0.875rem;
     }
 }
 
-@media (max-width: 480px) {
-    h1 { font-size: 1.8rem; }
-    h2 { font-size: 1.4rem; }
-    #hero p { font-size: 1rem; }
-
-    #contact-info ul li { font-size: 1rem; }
-
-    .skill-category h4 { font-size: 1.1rem; }
+@media (max-width: 480px) { /* Small mobile */
+    #hero h1 { font-size: 2.25rem; } /* Further reduce hero title */
+    #hero p { font-size: 1.125rem; }
 }
 
-/* Accessibility: Focus visible for keyboard navigation */
+
+/* --- Accessibility: Focus visible --- */
 *:focus-visible {
-  outline: 3px solid var(--secondary-accent);
+  outline: 2px solid var(--accent-color);
   outline-offset: 2px;
 }
-header nav ul li a:focus-visible { /* Ensure nav links have clear focus */
-    background-color: var(--secondary-accent);
-    color: var(--primary-bg);
-    outline: none; /* Custom outline already good */
+header nav ul li a:focus-visible {
+    background-color: rgba(0, 122, 255, 0.1); /* Subtle blue background for focus on nav */
+    outline: none;
 }
 
-/* --- Print Styles (Optional but good practice) --- */
+/* --- Print Styles (Minimal) --- */
 @media print {
     :root {
-        --primary-bg: #ffffff;
-        --secondary-bg: #f0f0f0;
-        --text-color: #000000;
-        --primary-accent: #007bff; /* Blue for print */
-        --secondary-accent: #5cb85c; /* Green for print */
-        --border-color: #cccccc;
+        --bg-color: #ffffff;
+        --text-color-primary: #000000;
+        --text-color-secondary: #333333;
+        --border-color-hairline: #e0e0e0;
+        --accent-color: #007bff; /* Standard blue for print */
     }
 
     body {
-        font-size: 12pt;
-        line-height: 1.4;
+        font-size: 11pt;
+        line-height: 1.5;
     }
 
-    header, footer, #hero {
-        display: none; /* Don't print header, footer, or hero */
-    }
+    header, footer { display: none; }
 
     main {
         max-width: 100%;
@@ -607,51 +369,165 @@ header nav ul li a:focus-visible { /* Ensure nav links have clear focus */
     section {
         padding: 1cm 0;
         margin-bottom: 1cm;
-        box-shadow: none;
-        border-radius: 0;
-        border-top: 1px solid var(--border-color);
+        border-bottom: 1px solid var(--border-color-hairline);
     }
-    section:first-of-type {
-        border-top: none;
-    }
+    section:last-of-type { border-bottom: none; }
 
-
-    h2 {
-        font-size: 16pt;
-        border-bottom: 1px solid var(--primary-accent);
-        padding-bottom: 0.2cm;
-        margin-bottom: 0.5cm;
-    }
-    h3 {
-        font-size: 14pt;
-    }
-    h4 {
-        font-size: 12pt;
-    }
+    h1 { font-size: 20pt; }
+    h2 { font-size: 16pt; border-bottom-color: #ccc; }
+    h3 { font-size: 13pt; }
 
     a {
-        color: var(--primary-accent);
+        color: var(--accent-color);
         text-decoration: underline;
     }
     a[href^="http"]:after, a[href^="https"]:after {
-        content: " (" attr(href) ")"; /* Show full links when printing */
+        content: " (" attr(href) ")";
         font-size: 0.9em;
+        color: #555;
     }
+    #contact a[href^="mailto"]:after {
+        content: ""; /* Don't show mailto link */
+    }
+}
 
-    .skill-category ul li {
-        background-color: transparent;
-        border: 1px solid var(--border-color);
-        padding: 0.2rem 0.5rem;
-        color: var(--text-color);
-    }
+/* --- Remove Old Animations (Placeholder - actual animation keyframes were already extensive) --- */
+/* 
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+... etc. All previous @keyframes and animation class definitions should be considered removed by this overwrite.
+New, subtler animations will be added if needed in a subsequent step.
+The section.visible, .animated-item, and related rules from the old theme are effectively gone.
+*/
 
-    .job-entry, .project-entry {
-        padding: 0;
-        margin-bottom: 1cm;
-        border-left: none;
-        box-shadow: none;
+/* Ensure section visibility for JS - will be re-evaluated for new animation style */
+/* Default state for sections before they become visible */
+section {
+    opacity: 0;
+    transform: translateY(10px); /* Initial state for subtleSlideUp */
+    transition: opacity 0.65s var(--transition-timing), transform 0.65s var(--transition-timing);
+}
+
+section.visible { /* This class from script.js will trigger the transition */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- New Subtle Animation Keyframes --- */
+@keyframes subtleFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes subtleSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
     }
-    .job-entry ul, .project-entry ul {
-        padding-left: 1cm;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
+
+@keyframes subtleSlideUpSlightDelay { /* For elements that need a slight delay after section visible */
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    50% { /* Start animation after a bit of delay */
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* --- Page Load Animations --- */
+/* Hero Text */
+#hero h1, #hero p {
+    opacity: 0;
+    animation-name: subtleSlideUp;
+    animation-duration: 0.7s; /* Slightly longer for impact */
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+#hero h1 { animation-delay: 0.2s; }
+#hero p { animation-delay: 0.4s; }
+
+/* Navigation Links */
+header nav ul li {
+    opacity: 0;
+    animation-name: subtleFadeIn;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+/* Stagger nav links */
+header nav ul li:nth-child(1) { animation-delay: 0.3s; }
+header nav ul li:nth-child(2) { animation-delay: 0.4s; }
+header nav ul li:nth-child(3) { animation-delay: 0.5s; }
+header nav ul li:nth-child(4) { animation-delay: 0.6s; }
+header nav ul li:nth-child(5) { animation-delay: 0.7s; }
+header nav ul li:nth-child(6) { animation-delay: 0.8s; }
+
+
+/* --- Scroll-Triggered Animations for Section Content --- */
+/* Elements within a section that should animate slightly after the section itself */
+section.visible .education-entry,
+section.visible .job-entry,
+section.visible .project-entry,
+section.visible .skills-condensed p,
+section.visible #contact ul li /* For contact list items */ {
+    opacity: 0; /* Start hidden */
+    animation-name: subtleSlideUp; /* Changed from subtleSlideUpSlightDelay */
+    animation-duration: 0.6s; /* Shortened from 0.8s */
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+
+/* Staggering for items within sections - adjusted delays for faster animation */
+/* Education */
+section.visible .education-entry { animation-delay: 0.15s; } /* Base delay after section is visible */
+
+/* Skills */
+section.visible .skills-condensed p:nth-of-type(1) { animation-delay: 0.15s; }
+section.visible .skills-condensed p:nth-of-type(2) { animation-delay: 0.25s; }
+section.visible .skills-condensed p:nth-of-type(3) { animation-delay: 0.35s; }
+
+/* Experience */
+section.visible .job-entry:nth-of-type(1) { animation-delay: 0.15s; }
+section.visible .job-entry:nth-of-type(2) { animation-delay: 0.3s; }
+
+/* Projects */
+section.visible .project-entry:nth-of-type(1) { animation-delay: 0.15s; }
+/* Add more if there were multiple project entries */
+
+/* Contact List Items */
+section.visible #contact ul li:nth-child(1) { animation-delay: 0.15s; }
+section.visible #contact ul li:nth-child(2) { animation-delay: 0.25s; }
+section.visible #contact ul li:nth-child(3) { animation-delay: 0.35s; }
+
+
+/* --- Hover Effects Refinements --- */
+.project-entry p a {
+    display: inline-block; /* Needed for transform */
+    transition: color var(--transition-duration) var(--transition-timing),
+                transform 0.2s var(--transition-timing); /* Faster transform */
+}
+
+.project-entry p a:hover, .project-entry p a:focus {
+    /* color already handled by general 'a:hover' */
+    transform: translateY(-2px) scale(1.02); /* Subtle lift and scale */
+    text-decoration: underline; /* Ensure underline on hover for project links */
+}
+
+/* Footer animation - simple fade in is fine, can be part of section animations if footer is a section */
+/* Or, if script.js targets footer separately: */
+footer {
+    opacity: 0;
+    animation: subtleFadeIn 1s ease-out 0.5s forwards; /* Fade in after other content potentially visible */
 }
