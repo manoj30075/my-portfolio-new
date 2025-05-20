@@ -1,0 +1,657 @@
+/* style.css */
+
+/* --- Variables and Global Styles --- */
+:root {
+    --primary-bg: #1a1a1a; /* Dark background */
+    --secondary-bg: #2c2c2c; /* Slightly lighter dark for cards/sections */
+    --text-color: #e0e0e0; /* Light grey for text */
+    --primary-accent: #64ffda; /* A vibrant accent color (teal/aqua) */
+    --secondary-accent: #ffab70; /* A warmer accent for contrast */
+    --border-color: #444;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    --card-hover-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    --font-primary: 'Fira Code', monospace; /* From existing HTML */
+    --font-secondary: 'Roboto', sans-serif; /* For body text - more readable */
+    --animation-duration-fast: 0.3s;
+    --animation-duration-medium: 0.5s;
+    --animation-duration-slow: 0.8s;
+}
+
+html {
+    scroll-behavior: smooth;
+    box-sizing: border-box; /* Better box model */
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-secondary);
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 16px; /* Base font size */
+    overflow-x: hidden; /* Prevent horizontal scrollbars during animations */
+}
+
+/* --- Animations Keyframes --- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    80% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    color: var(--primary-accent);
+    margin-top: 0;
+    margin-bottom: 1rem; /* Consistent spacing */
+}
+
+h1 {
+    font-size: 2.8rem; /* Larger for hero */
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    border-bottom: 2px solid var(--primary-accent);
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem; /* Space below section titles */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--secondary-accent);
+}
+
+h4 {
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--primary-accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover, a:focus {
+    color: var(--secondary-accent);
+    text-decoration: underline; /* Or remove if design dictates */
+    outline: 2px solid var(--secondary-accent); /* Focus indicator */
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* --- Layout & Container --- */
+main {
+    max-width: 1000px; /* Max content width */
+    margin: 0 auto; /* Center content */
+    padding: 2rem 1.5rem; /* Padding around main content */
+}
+
+section {
+    padding: 3rem 1rem; /* Vertical padding for sections */
+    margin-bottom: 3rem; /* Space between sections */
+    background-color: var(--secondary-bg);
+    border-radius: 8px; /* Rounded corners for sections */
+    box-shadow: var(--card-shadow);
+    transition: transform var(--animation-duration-fast) ease, box-shadow var(--animation-duration-fast) ease;
+    /* Base for scroll animations - will be overridden by JS or specific classes */
+    opacity: 0; /* Initially hidden for JS-triggered animation */
+    transform: translateY(20px); /* Initial state for JS-triggered animation */
+}
+
+section.visible { /* Class to be added by JS */
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity var(--animation-duration-medium) ease-out, transform var(--animation-duration-medium) ease-out;
+}
+
+
+section:hover {
+    transform: translateY(-5px); /* Subtle lift effect */
+}
+
+
+/* --- Header & Navigation --- */
+header {
+    background-color: var(--primary-bg);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid var(--border-color);
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    /* Animation for nav items */
+}
+
+header nav ul li {
+    margin: 0 1rem;
+    opacity: 0;
+    animation: fadeInDown var(--animation-duration-medium) ease-out forwards;
+}
+
+/* Stagger animation for nav links */
+header nav ul li:nth-child(1) { animation-delay: 0.1s; }
+header nav ul li:nth-child(2) { animation-delay: 0.2s; }
+header nav ul li:nth-child(3) { animation-delay: 0.3s; }
+header nav ul li:nth-child(4) { animation-delay: 0.4s; }
+header nav ul li:nth-child(5) { animation-delay: 0.5s; }
+header nav ul li:nth-child(6) { animation-delay: 0.6s; }
+
+
+header nav ul li a {
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color var(--animation-duration-fast) ease, color var(--animation-duration-fast) ease;
+}
+
+header nav ul li a:hover, header nav ul li a.active {
+    background-color: var(--primary-accent);
+    color: var(--primary-bg);
+    text-decoration: none;
+}
+
+/* --- Hero Section --- */
+#hero { /* Will be animated by JS as it's a section */
+    text-align: center;
+    padding: 4rem 1rem; /* More padding for hero */
+    background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+    border-radius: 0 0 8px 8px; /* Only round bottom if header is separate */
+}
+#hero h1 {
+    animation: fadeInUp var(--animation-duration-medium) ease-out 0.5s forwards;
+    opacity: 0; /* Start hidden for animation */
+}
+
+#hero p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    opacity: 0; /* Start hidden for animation */
+    animation: fadeInUp var(--animation-duration-medium) ease-out 0.8s forwards;
+}
+
+/* --- Section Specific Styling --- */
+/* Adding classes for elements that should animate within sections when section becomes visible */
+/* These will be targeted by JS or specific section visibility CSS */
+
+.animated-item {
+    opacity: 0; /* Initially hidden */
+    transition: opacity var(--animation-duration-medium) ease-out var(--animation-duration-fast), transform var(--animation-duration-medium) ease-out var(--animation-duration-fast);
+}
+
+/* Different types of animations for items */
+.animate-fadeInUp { transform: translateY(20px); }
+.animate-fadeInLeft { transform: translateX(-20px); }
+.animate-fadeInRight { transform: translateX(20px); }
+.animate-popIn { transform: scale(0.9); }
+
+section.visible .animated-item {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+}
+
+/* Stagger children animations if needed (example for .job-entry or .project-entry children) */
+section.visible .job-entry, section.visible .project-entry, section.visible .education-entry, section.visible .skill-category {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp var(--animation-duration-medium) ease-out forwards;
+}
+
+section.visible .job-entry:nth-child(odd), section.visible .project-entry:nth-child(odd) { animation-name: fadeInLeft; }
+section.visible .job-entry:nth-child(even), section.visible .project-entry:nth-child(even) { animation-name: fadeInRight; }
+
+
+/* Staggering for cards within sections */
+section.visible .job-entry,
+section.visible .project-entry,
+section.visible .education-entry,
+section.visible .skill-category {
+    opacity: 0; /* Start hidden */
+    transform: translateY(30px); /* Initial position for fadeInUp */
+    /* The actual animation will be applied by JS adding a class or through staggered CSS like below */
+}
+
+/* Example of staggered animation for items within a visible section */
+section.visible .card-animate:nth-child(1) { animation: fadeInUp var(--animation-duration-medium) ease-out 0.2s forwards; }
+section.visible .card-animate:nth-child(2) { animation: fadeInUp var(--animation-duration-medium) ease-out 0.4s forwards; }
+section.visible .card-animate:nth-child(3) { animation: fadeInUp var(--animation-duration-medium) ease-out 0.6s forwards; }
+/* Add more if needed */
+
+
+/* Apply .card-animate to actual elements in HTML if this approach is chosen over direct JS manipulation for staggering */
+#education .education-entry,
+#experience .job-entry,
+#projects .project-entry,
+#skills .skill-category {
+    /* Base transition for hover, already defined */
+    /* These will now be animated by the .card-animate rule or specific section.visible rules */
+}
+
+/* About Me & Contact Info */
+#about, #contact-info {
+    background-color: var(--secondary-bg); /* Consistent section background */
+}
+
+#contact-info ul li {
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+#contact-info ul li a {
+    font-weight: 500; /* Fira Code medium */
+}
+
+/* Education */
+#education .education-entry {
+    background-color: var(--primary-bg); /* Slightly darker card */
+    padding: 1.5rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--primary-accent);
+}
+
+#education .education-entry h3 {
+    margin-bottom: 0.25rem;
+}
+
+#education .education-entry p {
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+}
+
+#education .education-entry h4 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-accent);
+    font-size: 1rem;
+}
+
+#education .education-entry ul li {
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+#education .education-entry ul li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--primary-accent);
+}
+
+
+/* Skills Section */
+#skills h2 {
+    margin-bottom: 2.5rem; /* More space for category layout */
+}
+.skill-category {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: var(--primary-bg);
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.skill-category h4 {
+    color: var(--secondary-accent);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.skill-category ul {
+    display: flex;
+    flex-wrap: wrap; /* Allow skills to wrap */
+    gap: 0.75rem; /* Space between skill items */
+    padding-left: 0;
+}
+
+.skill-category ul li {
+    background-color: var(--secondary-bg);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px; /* Pill shape */
+    font-size: 0.9rem;
+    border: 1px solid var(--border-color);
+    transition: background-color var(--animation-duration-fast) ease, color var(--animation-duration-fast) ease, transform var(--animation-duration-fast) ease;
+    /* For pop-in animation if skill items are animated individually */
+    opacity: 0;
+    transform: scale(0.5);
+    animation: popIn var(--animation-duration-fast) ease-out forwards;
+}
+
+/* Stagger skill items animation */
+.skill-category ul li:nth-child(1) { animation-delay: 0.1s; }
+.skill-category ul li:nth-child(2) { animation-delay: 0.15s; }
+.skill-category ul li:nth-child(3) { animation-delay: 0.2s; }
+.skill-category ul li:nth-child(4) { animation-delay: 0.25s; }
+.skill-category ul li:nth-child(5) { animation-delay: 0.3s; }
+.skill-category ul li:nth-child(6) { animation-delay: 0.35s; }
+.skill-category ul li:nth-child(7) { animation-delay: 0.4s; }
+.skill-category ul li:nth-child(8) { animation-delay: 0.45s; }
+.skill-category ul li:nth-child(9) { animation-delay: 0.5s; }
+.skill-category ul li:nth-child(10) { animation-delay: 0.55s; }
+/* Add more if categories have more skills. This is for when the .skill-category becomes visible */
+
+
+.skill-category ul li:hover {
+    background-color: var(--primary-accent);
+    color: var(--primary-bg);
+    transform: scale(1.08); /* Slightly more pop on hover */
+}
+
+
+/* Experience & Projects Section */
+.job-entry, .project-entry {
+    background-color: var(--primary-bg); /* Darker card background */
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    border-left: 5px solid var(--secondary-accent); /* Accent border */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: box-shadow var(--animation-duration-fast) ease, transform var(--animation-duration-fast) ease;
+    /* These will be animated by section.visible .job-entry etc. rules */
+}
+
+.job-entry:hover, .project-entry:hover {
+    box-shadow: var(--card-hover-shadow);
+    transform: translateY(-6px); /* Increased hover effect */
+}
+
+.job-entry h3, .project-entry h3 {
+    margin-bottom: 0.25rem;
+}
+
+.job-entry p, .project-entry p {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+.job-entry p:first-of-type, .project-entry p:first-of-type { /* Company/Location/Role */
+    font-weight: 500; /* Fira Code medium */
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+
+.job-entry ul, .project-entry ul { /* For responsibilities/details */
+    padding-left: 1.5rem; /* Indent list items */
+    margin-top: 1rem;
+}
+
+.job-entry ul li, .project-entry ul li {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    list-style-type: disc; /* Or custom bullet */
+}
+.job-entry ul li::marker, .project-entry ul li::marker {
+    color: var(--primary-accent);
+}
+
+
+.project-entry a { /* Specific styling for project links */
+    display: inline-block; /* Allows padding and margin */
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-accent);
+    color: var(--primary-bg);
+    border-radius: 4px;
+    font-weight: 500; /* Fira Code medium */
+    transition: background-color var(--animation-duration-fast) ease, transform var(--animation-duration-fast) ease;
+}
+
+.project-entry a:hover {
+    background-color: var(--secondary-accent);
+    text-decoration: none;
+    transform: translateY(-3px); /* Increased hover effect */
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: var(--primary-bg);
+    border-top: 1px solid var(--border-color);
+    margin-top: 3rem; /* Space above footer */
+    opacity: 0; /* For fade in animation */
+    animation: fadeIn var(--animation-duration-slow) ease-out 1s forwards; /* Simple fade in for footer */
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8; /* This opacity is fine, the parent footer handles initial animation opacity */
+}
+
+/* --- Responsive Design --- */
+
+/* Tablets and smaller desktops */
+@media (max-width: 992px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.8rem; }
+    main { padding: 2rem 1rem; }
+    section { padding: 2.5rem 0.75rem; }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    body { font-size: 15px; }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.6rem; margin-bottom: 1.5rem;}
+    h3 { font-size: 1.3rem; }
+
+    header nav ul {
+        flex-direction: column; /* Stack nav items */
+        gap: 0.5rem;
+    }
+    header nav ul li {
+        margin: 0.25rem 0;
+    }
+    header nav ul li a {
+        display: block; /* Make links take full width for easier tapping */
+        padding: 0.6rem 1rem;
+    }
+
+    #hero { padding: 3rem 0.5rem; }
+    main { padding: 1.5rem 0.5rem; } /* Less padding on mobile */
+    section { padding: 2rem 0.5rem; margin-bottom: 2rem; }
+
+    .job-entry, .project-entry {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .skill-category ul {
+        justify-content: center; /* Center skill pills */
+        gap: 0.5rem;
+    }
+    .skill-category ul li {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.4rem; }
+    #hero p { font-size: 1rem; }
+
+    #contact-info ul li { font-size: 1rem; }
+
+    .skill-category h4 { font-size: 1.1rem; }
+}
+
+/* Accessibility: Focus visible for keyboard navigation */
+*:focus-visible {
+  outline: 3px solid var(--secondary-accent);
+  outline-offset: 2px;
+}
+header nav ul li a:focus-visible { /* Ensure nav links have clear focus */
+    background-color: var(--secondary-accent);
+    color: var(--primary-bg);
+    outline: none; /* Custom outline already good */
+}
+
+/* --- Print Styles (Optional but good practice) --- */
+@media print {
+    :root {
+        --primary-bg: #ffffff;
+        --secondary-bg: #f0f0f0;
+        --text-color: #000000;
+        --primary-accent: #007bff; /* Blue for print */
+        --secondary-accent: #5cb85c; /* Green for print */
+        --border-color: #cccccc;
+    }
+
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+
+    header, footer, #hero {
+        display: none; /* Don't print header, footer, or hero */
+    }
+
+    main {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    section {
+        padding: 1cm 0;
+        margin-bottom: 1cm;
+        box-shadow: none;
+        border-radius: 0;
+        border-top: 1px solid var(--border-color);
+    }
+    section:first-of-type {
+        border-top: none;
+    }
+
+
+    h2 {
+        font-size: 16pt;
+        border-bottom: 1px solid var(--primary-accent);
+        padding-bottom: 0.2cm;
+        margin-bottom: 0.5cm;
+    }
+    h3 {
+        font-size: 14pt;
+    }
+    h4 {
+        font-size: 12pt;
+    }
+
+    a {
+        color: var(--primary-accent);
+        text-decoration: underline;
+    }
+    a[href^="http"]:after, a[href^="https"]:after {
+        content: " (" attr(href) ")"; /* Show full links when printing */
+        font-size: 0.9em;
+    }
+
+    .skill-category ul li {
+        background-color: transparent;
+        border: 1px solid var(--border-color);
+        padding: 0.2rem 0.5rem;
+        color: var(--text-color);
+    }
+
+    .job-entry, .project-entry {
+        padding: 0;
+        margin-bottom: 1cm;
+        border-left: none;
+        box-shadow: none;
+    }
+    .job-entry ul, .project-entry ul {
+        padding-left: 1cm;
+    }
+}
