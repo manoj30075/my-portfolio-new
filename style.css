@@ -205,11 +205,21 @@ header nav ul li a.active { /* For JS active link highlighting */
     margin-bottom: var(--space-xs);
 }
 
-#hero p { /* Tagline */
+#hero > p { /* Main tagline */
     font-size: 1.25rem;
-    font-weight: 400; /* Inter regular */
+    font-weight: 500;
+    color: var(--text-color-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.hero-subtitle p {
+    font-size: 1.125rem;
+    font-weight: 400;
     color: var(--text-color-secondary);
     margin-bottom: 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* --- About Section --- */
@@ -223,40 +233,110 @@ header nav ul li a.active { /* For JS active link highlighting */
 }
 
 /* --- Contact Section --- */
-#contact ul li {
-    margin-bottom: var(--space-sm);
-    font-size: 1.125rem;
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-md);
+    margin-top: var(--space-md);
 }
-#contact ul li a {
-    font-weight: 500; /* Inter medium */
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-md);
+    background: var(--section-bg-subtle);
+    border-radius: 8px;
+    border: 1px solid var(--border-color-soft);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-subtle);
+}
+
+.contact-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-color-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: var(--space-xs);
+}
+
+.contact-item a, .contact-item span:not(.contact-label) {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contact-item a:hover {
+    color: var(--accent-color);
 }
 
 /* --- Education Section --- */
-#education .education-entry p {
-    font-size: 1rem; /* Approx 16px */
-    color: var(--text-color-secondary);
-    margin-bottom: var(--space-xs); /* Tighter spacing for education lines */
+.education-entry {
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--border-color-hairline);
 }
-#education .education-entry p:last-child {
+
+.education-entry:last-child {
     margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.education-entry h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-color-primary);
+    margin-bottom: var(--space-xs);
 }
 
 /* --- Skills Section --- */
-#skills .skills-condensed p {
-    font-size: 1rem;
-    color: var(--text-color-secondary);
-    margin-bottom: var(--space-xs); /* Tighter spacing */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-md);
 }
 
-#skills .skills-condensed strong {
-    font-weight: 500; /* Inter medium */
+.skill-category {
+    padding: var(--space-md);
+    background: var(--section-bg-subtle);
+    border-radius: 12px;
+    border: 1px solid var(--border-color-soft);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-subtle);
+}
+
+.skill-category h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
     color: var(--text-color-primary);
+    margin-bottom: var(--space-sm);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: var(--space-xs);
+}
+
+.skill-category p {
+    font-size: 0.9375rem;
+    color: var(--text-color-secondary);
+    line-height: 1.6;
+    margin-bottom: 0;
 }
 
 /* --- Experience & Projects Sections --- */
 .job-entry, .project-entry {
-    margin-bottom: var(--space-md);
-    padding-bottom: var(--space-md);
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-lg);
     border-bottom: 1px solid var(--border-color-hairline);
 }
 .job-entry:last-child, .project-entry:last-child {
@@ -265,32 +345,68 @@ header nav ul li a.active { /* For JS active link highlighting */
     border-bottom: none;
 }
 
-.job-entry h3, .project-entry h3 { /* Title of job/project */
-    font-size: 1.375rem; /* Approx 22px */
+.job-entry h3, .project-entry h3 {
+    font-size: 1.375rem;
+    margin-bottom: var(--space-xs);
+    color: var(--text-color-primary);
+}
+
+.company-name, .institution {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--accent-color);
     margin-bottom: var(--space-xs);
 }
 
-/* Company name / Project role, etc. */
-.job-entry p:nth-of-type(1), /* Specific to current HTML structure for company */
-.project-entry p:nth-of-type(1) { /* Specific to current HTML structure for description */
+.job-period, .project-period, .education-period {
+    font-size: 0.9375rem;
+    font-weight: 400;
+    color: var(--text-color-tertiary);
+    margin-bottom: var(--space-sm);
+    font-style: italic;
+}
+
+.project-description {
     font-size: 1rem;
-    font-weight: 500; /* Inter medium */
-    color: var(--text-color-secondary); /* Or primary if more emphasis needed */
+    color: var(--text-color-secondary);
+    margin-bottom: var(--space-sm);
+    line-height: 1.6;
+}
+
+.job-highlights, .project-highlights {
+    list-style: none;
+    padding-left: 0;
     margin-bottom: var(--space-sm);
 }
 
-/* Descriptions */
-.job-entry p:nth-of-type(2), /* Specific to current HTML structure for description */
-.project-entry p a { /* Style the link within the project description */
-    font-size: 1rem;
+.job-highlights li, .project-highlights li {
+    font-size: 0.9375rem;
     color: var(--text-color-secondary);
+    margin-bottom: var(--space-xs);
+    padding-left: var(--space-md);
+    position: relative;
+    line-height: 1.5;
 }
-.project-entry p a { /* Override default link color for project link if needed */
+
+.job-highlights li::before, .project-highlights li::before {
+    content: "•";
     color: var(--accent-color);
-    font-weight: 500;
+    font-weight: bold;
+    position: absolute;
+    left: var(--space-xs);
 }
-.project-entry p a:hover {
-    color: #0056b3;
+
+.coursework {
+    font-size: 0.9375rem;
+    color: var(--text-color-secondary);
+    margin-top: var(--space-xs);
+    line-height: 1.5;
+}
+
+.degree-focus {
+    font-size: 0.9375rem;
+    color: var(--text-color-secondary);
+    font-style: italic;
 }
 
 
@@ -309,16 +425,17 @@ footer p {
 }
 
 /* --- Responsive Design --- */
-@media (max-width: 768px) { /* Tablet and mobile */
+@media (max-width: 768px) {
     body {
-        font-size: 1rem; /* Base 16px for mobile */
+        font-size: 1rem;
     }
 
-    h1 { font-size: 2.25rem; } /* Approx 36px */
-    #hero h1 { font-size: 2.75rem; } /* Approx 44px, slightly smaller */
-    #hero p { font-size: 1.25rem; } /* Approx 20px */
-    h2 { font-size: 1.5rem; } /* Approx 24px */
-    h3 { font-size: 1.125rem; } /* Approx 18px */
+    h1 { font-size: 2.25rem; }
+    #hero h1 { font-size: 2.5rem; }
+    #hero > p { font-size: 1.125rem; }
+    .hero-subtitle p { font-size: 1rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.125rem; }
 
     main {
         padding: var(--space-lg) var(--space-sm);
@@ -333,8 +450,7 @@ footer p {
     }
 
     header nav ul {
-        /* Consider hamburger menu for very small screens if needed, but for few items, flex-wrap might be okay */
-        flex-wrap: wrap; /* Allow nav items to wrap */
+        flex-wrap: wrap;
         justify-content: center;
         gap: var(--space-xs);
     }
@@ -343,6 +459,20 @@ footer p {
     }
     header nav ul li a {
         padding: var(--space-xs);
+        font-size: 0.875rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+
+    .job-highlights li, .project-highlights li {
         font-size: 0.875rem;
     }
 }
@@ -420,17 +550,47 @@ New, subtler animations will be added if needed in a subsequent step.
 The section.visible, .animated-item, and related rules from the old theme are effectively gone.
 */
 
-/* Ensure section visibility for JS - will be re-evaluated for new animation style */
-/* Default state for sections before they become visible */
+/* Enhanced section visibility and animations */
 section {
     opacity: 0;
-    transform: translateY(10px); /* Initial state for subtleSlideUp */
-    transition: opacity 0.65s var(--transition-timing), transform 0.65s var(--transition-timing);
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-section.visible { /* This class from script.js will trigger the transition */
+section.section-hidden {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+section.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Enhanced animations for child elements */
+.skill-category, .contact-item, .job-entry, .project-entry, .education-entry {
+    opacity: 0;
+    transform: translateY(15px) scale(0.95);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-in {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+}
+
+/* Typewriter cursor effect */
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.typewriter::after {
+    content: '|';
+    animation: blink 1s infinite;
+    color: var(--accent-color);
 }
 
 /* --- New Subtle Animation Keyframes --- */
@@ -496,40 +656,40 @@ header nav ul li:nth-child(6) { animation-delay: 0.8s; }
 
 
 /* --- Scroll-Triggered Animations for Section Content --- */
-/* Elements within a section that should animate slightly after the section itself */
 section.visible .education-entry,
 section.visible .job-entry,
 section.visible .project-entry,
-section.visible .skills-condensed p,
-section.visible #contact ul li /* For contact list items */ {
-    opacity: 0; /* Start hidden */
-    animation-name: subtleSlideUp; /* Changed from subtleSlideUpSlightDelay */
-    animation-duration: 0.6s; /* Shortened from 0.8s */
+section.visible .skill-category,
+section.visible .contact-item {
+    opacity: 0;
+    animation-name: subtleSlideUp;
+    animation-duration: 0.6s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
 }
 
-/* Staggering for items within sections - adjusted delays for faster animation */
-/* Education */
-section.visible .education-entry { animation-delay: 0.15s; } /* Base delay after section is visible */
+/* Staggered animations */
+section.visible .education-entry:nth-of-type(1) { animation-delay: 0.1s; }
+section.visible .education-entry:nth-of-type(2) { animation-delay: 0.2s; }
 
-/* Skills */
-section.visible .skills-condensed p:nth-of-type(1) { animation-delay: 0.15s; }
-section.visible .skills-condensed p:nth-of-type(2) { animation-delay: 0.25s; }
-section.visible .skills-condensed p:nth-of-type(3) { animation-delay: 0.35s; }
+section.visible .job-entry:nth-of-type(1) { animation-delay: 0.1s; }
+section.visible .job-entry:nth-of-type(2) { animation-delay: 0.25s; }
 
-/* Experience */
-section.visible .job-entry:nth-of-type(1) { animation-delay: 0.15s; }
-section.visible .job-entry:nth-of-type(2) { animation-delay: 0.3s; }
+section.visible .project-entry:nth-of-type(1) { animation-delay: 0.1s; }
 
-/* Projects */
-section.visible .project-entry:nth-of-type(1) { animation-delay: 0.15s; }
-/* Add more if there were multiple project entries */
+section.visible .skill-category:nth-of-type(1) { animation-delay: 0.1s; }
+section.visible .skill-category:nth-of-type(2) { animation-delay: 0.15s; }
+section.visible .skill-category:nth-of-type(3) { animation-delay: 0.2s; }
+section.visible .skill-category:nth-of-type(4) { animation-delay: 0.25s; }
+section.visible .skill-category:nth-of-type(5) { animation-delay: 0.3s; }
+section.visible .skill-category:nth-of-type(6) { animation-delay: 0.35s; }
 
-/* Contact List Items */
-section.visible #contact ul li:nth-child(1) { animation-delay: 0.15s; }
-section.visible #contact ul li:nth-child(2) { animation-delay: 0.25s; }
-section.visible #contact ul li:nth-child(3) { animation-delay: 0.35s; }
+section.visible .contact-item:nth-of-type(1) { animation-delay: 0.1s; }
+section.visible .contact-item:nth-of-type(2) { animation-delay: 0.15s; }
+section.visible .contact-item:nth-of-type(3) { animation-delay: 0.2s; }
+section.visible .contact-item:nth-of-type(4) { animation-delay: 0.25s; }
+section.visible .contact-item:nth-of-type(5) { animation-delay: 0.3s; }
+section.visible .contact-item:nth-of-type(6) { animation-delay: 0.35s; }
 
 
 /* --- Hover Effects Refinements --- */

@@ -1,61 +1,245 @@
-// script.js
-document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('section');
+// Modern Portfolio JavaScript with ES6+ Features
+class PortfolioApp {
+    constructor() {
+        this.sections = document.querySelectorAll('section');
+        this.navLinks = document.querySelectorAll('header nav ul li a');
+        this.sectionsForNavHighlighting = document.querySelectorAll('main > section[id]');
+        
+        // Enhanced animation options with better performance
+        this.sectionObserverOptions = {
+            root: null,
+            rootMargin: '0px 0px -10% 0px',
+            threshold: [0.1, 0.3, 0.5]
+        };
 
-    const sectionObserverOptions = {
-        root: null, // relative to the viewport
-        rootMargin: '0px',
-        threshold: 0.1 // 10% of the item is visible
-    };
+        this.navObserverOptions = {
+            root: null,
+            rootMargin: '-20% 0px -60% 0px',
+            threshold: 0
+        };
 
-    const sectionObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                // CSS now handles card animation delays using :nth-of-type
-                observer.unobserve(entry.target); // Stop observing once animated
+        this.init();
+    }
+
+    init() {
+        this.setupSectionAnimations();
+        this.setupNavHighlighting();
+        this.setupSmoothScrolling();
+        this.setupDynamicTyping();
+        this.setupSkillHovers();
+        this.setupParallaxEffect();
+        this.setupProgressiveImageLoading();
+    }
+
+    setupSectionAnimations() {
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.1) {
+                    // Add staggered animation class
+                    entry.target.classList.add('visible');
+                    
+                    // Enhanced animation for skill categories and contact items
+                    this.animateChildElements(entry.target);
+                    
+                    // Use WeakMap for performance - only observe once
+                    if (entry.intersectionRatio >= 0.3) {
+                        observer.unobserve(entry.target);
+                    }
+                }
+            });
+        }, this.sectionObserverOptions);
+
+        this.sections.forEach(section => {
+            // Add initial state classes
+            section.classList.add('section-hidden');
+            sectionObserver.observe(section);
+        });
+    }
+
+    animateChildElements(section) {
+        const animatableElements = section.querySelectorAll(
+            '.skill-category, .contact-item, .job-entry, .project-entry, .education-entry'
+        );
+        
+        animatableElements.forEach((element, index) => {
+            // Use requestAnimationFrame for better performance
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    element.classList.add('animate-in');
+                }, index * 100); // Stagger by 100ms
+            });
+        });
+    }
+
+    setupNavHighlighting() {
+        let activeSection = null;
+        
+        const navObserver = new IntersectionObserver(entries => {
+            // Sort entries by position to handle multiple intersections
+            const visibleEntries = entries
+                .filter(entry => entry.isIntersecting)
+                .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+            if (visibleEntries.length > 0) {
+                const mostVisible = visibleEntries[0];
+                if (mostVisible.target !== activeSection) {
+                    activeSection = mostVisible.target;
+                    this.updateActiveNavLink(activeSection.id);
+                }
+            }
+        }, this.navObserverOptions);
+
+        this.sectionsForNavHighlighting.forEach(section => {
+            navObserver.observe(section);
+        });
+    }
+
+    updateActiveNavLink(sectionId) {
+        this.navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${sectionId}`) {
+                link.classList.add('active');
             }
         });
-    }, sectionObserverOptions);
+    }
 
-    sections.forEach(section => {
-        sectionObserver.observe(section);
-    });
-
-    // Active Nav Link Highlighting on Scroll
-    const navLinks = document.querySelectorAll('header nav ul li a');
-    // Ensure we only select sections that are direct children of main and have an ID
-    const sectionsForNavHighlighting = document.querySelectorAll('main > section[id]');
-
-    const navObserverOptions = {
-        root: null,
-        rootMargin: '-40% 0px -40% 0px', // Highlights when section is more centered in viewport
-        threshold: 0 // Trigger as soon as any part of the section enters/leaves this margin
-    };
-
-    const navObserver = new IntersectionObserver(entries => {
-        let activeSet = false;
-        entries.forEach(entry => {
-            const link = document.querySelector(`header nav ul li a[href="#${entry.target.id}"]`);
-            if (entry.isIntersecting && entry.intersectionRatio > 0) {
-                if (link && !activeSet) { // Prioritize first intersecting section from top
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    link.classList.add('active');
-                    activeSet = true;
+    setupSmoothScrolling() {
+        this.navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        // Enhanced smooth scrolling with easing
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start',
+                            inline: 'nearest'
+                        });
+                        
+                        // Update URL without triggering scroll
+                        history.pushState(null, null, href);
+                    }
                 }
-            } else {
-                if (link) {
-                    link.classList.remove('active');
-                }
+            });
+        });
+    }
+
+    setupDynamicTyping() {
+        const heroTitle = document.querySelector('#hero h1');
+        const heroSubtitle = document.querySelector('.hero-subtitle p');
+        
+        if (heroTitle && heroSubtitle) {
+            // Add typewriter effect to hero elements
+            this.typeWriter(heroTitle, heroTitle.textContent, 50);
+            setTimeout(() => {
+                this.typeWriter(heroSubtitle, heroSubtitle.textContent, 30);
+            }, 1500);
+        }
+    }
+
+    typeWriter(element, text, speed = 50) {
+        element.textContent = '';
+        element.style.opacity = '1';
+        
+        let i = 0;
+        const timer = setInterval(() => {
+            element.textContent += text.charAt(i);
+            i++;
+            if (i >= text.length) {
+                clearInterval(timer);
+            }
+        }, speed);
+    }
+
+    setupSkillHovers() {
+        const skillCategories = document.querySelectorAll('.skill-category');
+        
+        skillCategories.forEach(category => {
+            category.addEventListener('mouseenter', () => {
+                category.style.transform = 'translateY(-5px) scale(1.02)';
+                category.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+            });
+            
+            category.addEventListener('mouseleave', () => {
+                category.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    }
+
+    setupParallaxEffect() {
+        let ticking = false;
+        
+        const updateParallax = () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.skill-category, .contact-item');
+            
+            parallaxElements.forEach((element, index) => {
+                const rate = scrolled * -0.5 * (index % 3 + 1) * 0.1;
+                element.style.transform = `translateY(${rate}px)`;
+            });
+            
+            ticking = false;
+        };
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
             }
         });
-        // If no section is actively intersecting under the highlight criteria (e.g. scrolling fast to footer)
-        // It might leave no link active, or the last one. This behavior is acceptable.
-        // For more precise "which section is most visible", thresholds array could be used.
-        // The current logic is simple and highlights if a section is in the -40% top/bottom margin.
-    }, navObserverOptions);
+    }
 
-    sectionsForNavHighlighting.forEach(section => {
-        navObserver.observe(section);
-    });
-});
+    setupProgressiveImageLoading() {
+        // Placeholder for future image optimization
+        const images = document.querySelectorAll('img');
+        
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.classList.add('loaded');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            images.forEach(img => imageObserver.observe(img));
+        }
+    }
+}
+
+// Enhanced error handling and performance monitoring
+const initializeApp = () => {
+    try {
+        const app = new PortfolioApp();
+        
+        // Performance monitoring
+        if ('performance' in window) {
+            window.addEventListener('load', () => {
+                const loadTime = performance.now();
+                console.log(`Portfolio loaded in ${loadTime.toFixed(2)}ms`);
+            });
+        }
+        
+    } catch (error) {
+        console.error('Failed to initialize portfolio app:', error);
+        // Fallback for basic functionality
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    }
+};
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+    initializeApp();
+}
