@@ -3,240 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Manoj Kumar Reddy Palasamudram - Software Engineer | VSCode & JupyterLab Expert | Developer Tools Engineer with 4+ years experience">
-    <meta name="keywords" content="Software Engineer, IDE Extensions, VSCode Extensions, JupyterLab Extensions, Developer Tools, VSCode API, JupyterLab API, Developer Experience, Seattle, Remote">
-    <title>Manoj Kumar Reddy Palasamudram - Software Engineer</title>
+    <meta name="description" content="Manoj Kumar Reddy Palasamudram - Software Engineer | Terminal-Style Portfolio | Developer Tools Expert">
+    <meta name="keywords" content="Software Engineer, Terminal Portfolio, Developer Tools, VSCode Extensions, JupyterLab Extensions, React Developer, Seattle">
+    <title>manoj@terminal:~$ whoami</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav class="nav-container">
-            <div class="logo">Manoj</div>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <div class="terminal-window">
+        <!-- Terminal Header -->
+        <div class="terminal-header">
+            <div class="terminal-title">manoj@portfolio:~</div>
+            <div class="terminal-controls">
+                <button class="terminal-button close"></button>
+                <button class="terminal-button minimize"></button>
+                <button class="terminal-button maximize"></button>
+            </div>
+        </div>
+
+        <!-- Terminal Navigation Tabs -->
+        <nav class="terminal-nav">
+            <button class="nav-tab active" data-tab="about">about.md</button>
+            <button class="nav-tab" data-tab="experience">experience.js</button>
+            <button class="nav-tab" data-tab="projects">projects.json</button>
+            <button class="nav-tab" data-tab="skills">package.json</button>
+            <button class="nav-tab" data-tab="contact">contact.env</button>
         </nav>
-    </header>
 
-    <main>
-        <section id="hero">
-            <h1>Manoj Kumar Reddy Palasamudram</h1>
-            <p>Software Engineer</p>
-            <div class="hero-subtitle">
-                <p>Software Engineer | Expert React Developer | Full-Stack Specialist | Developer Productivity Engineer</p>
+        <!-- Terminal Content -->
+        <main class="terminal-content">
+            <!-- About Section -->
+            <section id="about" class="terminal-section active">
+                <div class="terminal-prompt">cat about.md</div>
+                <div class="code-block" data-lang="markdown">
+<span class="comment"># Manoj Kumar Reddy Palasamudram</span>
+<span class="comment">## Software Engineer | Developer Productivity Specialist</span>
+
+<span class="string">```bash</span>
+<span class="keyword">whoami</span>: Software Engineer with 4+ years building scalable products and developer tools
+<span class="keyword">location</span>: Buffalo, NY (Open to Remote)
+<span class="keyword">specialization</span>: React, TypeScript, Python, VSCode Extensions, JupyterLab
+<span class="keyword">impact</span>: 200+ developers at LSEG, 1M+ users at Vymo
+<span class="keyword">expertise</span>: System design, microservices, AI-assisted development
+<span class="string">```</span>
+
+<span class="comment">### Current Focus</span>
+Building developer productivity tools and AI-assisted coding workflows.
+Expert in IDE extension development with proven track record of
+enterprise-scale implementations and significant productivity improvements.
+
+<span class="comment">### Philosophy</span>
+Code as craft. Terminals as canvas. Developer experience as art.<span class="cursor"></span>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience" class="terminal-section">
+                <div class="terminal-prompt">node experience.js</div>
+                <div class="code-block" data-lang="javascript">
+<span class="comment">// Professional Experience</span>
+
+<span class="keyword">const</span> <span class="function">lsegRole</span> = () => {
+  <span class="keyword">return</span> {
+    <span class="variable">company</span>: <span class="string">"London Stock Exchange Group (LSEG)"</span>,
+    <span class="variable">position</span>: <span class="string">"Software Engineer"</span>,
+    <span class="variable">duration</span>: <span class="string">"January 2024 - Present"</span>,
+    <span class="variable">location</span>: <span class="string">"Buffalo, NY"</span>,
+    <span class="variable">achievements</span>: [
+      <span class="string">"AI-Powered Developer Tools: VSCode + JupyterLab extensions ecosystem"</span>,
+      <span class="string">"Extension APIs: TreeDataProvider, LSP, WebView, Lumino Framework"</span>,
+      <span class="string">"Monorepo Architecture: NPM Workspaces + shared TypeScript/Python libs"</span>,
+      <span class="string">"Performance: 30% faster startup, 60% reduced dev overhead"</span>,
+      <span class="string">"AI Integration: GitHub Copilot + Claude Code workflow automation"</span>,
+      <span class="string">"Impact: 200+ analysts, 45% productivity improvement"</span>
+    ]
+  };
+};
+
+<span class="keyword">const</span> <span class="function">vymoRole</span> = () => {
+  <span class="keyword">return</span> {
+    <span class="variable">company</span>: <span class="string">"Vymo"</span>,
+    <span class="variable">position</span>: <span class="string">"Member of Technical Staff"</span>,
+    <span class="variable">duration</span>: <span class="string">"May 2018 - July 2021"</span>,
+    <span class="variable">location</span>: <span class="string">"Bengaluru, India"</span>,
+    <span class="variable">achievements</span>: [
+      <span class="string">"Enterprise CRM: Microservices architecture for 1M+ daily users"</span>,
+      <span class="string">"Full-Stack: React + Redux + Node.js + MongoDB architecture"</span>,
+      <span class="string">"Performance: 45% faster load times, 99.99% uptime"</span>,
+      <span class="string">"Leadership: Scrum Master, 20% improved team velocity"</span>,
+      <span class="string">"AI Pioneer: Early LLM integration, 45% coding time reduction"</span>
+    ]
+  };
+};
+
+<span class="comment">// Execute experience showcase</span>
+[<span class="function">lsegRole</span>(), <span class="function">vymoRole</span>()].<span class="function">forEach</span>(<span class="variable">role</span> => {
+  console.<span class="function">log</span>(<span class="string">`${role.company}: ${role.achievements.length} key achievements`</span>);
+});<span class="cursor"></span>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="terminal-section">
+                <div class="terminal-prompt">cat projects.json</div>
+                <div class="code-block" data-lang="json">
+{
+  <span class="string">"featured_projects"</span>: [
+    {
+      <span class="string">"name"</span>: <span class="string">"DevFlow CLI - Advanced Claude Code Workflow Automation"</span>,
+      <span class="string">"date"</span>: <span class="string">"2024-10"</span>,
+      <span class="string">"tech_stack"</span>: [<span class="string">"TypeScript"</span>, <span class="string">"Node.js"</span>, <span class="string">"Claude API"</span>, <span class="string">"Git Hooks"</span>],
+      <span class="string">"description"</span>: <span class="string">"CLI tool extending Claude Code capabilities"</span>,
+      <span class="string">"features"</span>: [
+        <span class="string">"Custom slash commands + .claude/commands integration"</span>,
+        <span class="string">"Automated git workflows + intelligent PR creation"</span>,
+        <span class="string">"MCP (Model Control Protocol) enterprise integration"</span>,
+        <span class="string">"40% reduction in manual development tasks"</span>
+      ],
+      <span class="string">"impact"</span>: <span class="string">"Enterprise-ready deployment with team collaboration"</span>
+    },
+    {
+      <span class="string">"name"</span>: <span class="string">"Divergent Paths - AI-Powered Scenario Explorer"</span>,
+      <span class="string">"date"</span>: <span class="string">"2024-09"</span>,
+      <span class="string">"tech_stack"</span>: [<span class="string">"React"</span>, <span class="string">"TypeScript"</span>, <span class="string">"OpenAI API"</span>, <span class="string">"Node.js"</span>],
+      <span class="string">"description"</span>: <span class="string">"AI-generated 'What If' scenario exploration tool"</span>,
+      <span class="string">"features"</span>: [
+        <span class="string">"OpenAI GPT API integration + custom prompt engineering"</span>,
+        <span class="string">"React + TypeScript + Vite build system"</span>,
+        <span class="string">"Sub-300ms response times with optimized caching"</span>,
+        <span class="string">"CI/CD pipeline with automated deployment"</span>
+      ],
+      <span class="string">"live_url"</span>: <span class="string">"https://the-road-not-taken.netlify.app/"</span>
+    }
+  ],
+  <span class="string">"total_projects"</span>: <span class="number">2</span>,
+  <span class="string">"github_profile"</span>: <span class="string">"https://github.com/manoj30075"</span>
+}<span class="cursor"></span>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="terminal-section">
+                <div class="terminal-prompt">cat package.json</div>
+                <div class="code-block" data-lang="json">
+{
+  <span class="string">"name"</span>: <span class="string">"manoj-developer-toolkit"</span>,
+  <span class="string">"version"</span>: <span class="string">"4.2.0"</span>,
+  <span class="string">"description"</span>: <span class="string">"Full-stack developer with AI-assisted coding expertise"</span>,
+  <span class="string">"main"</span>: <span class="string">"developer-productivity.js"</span>,
+  <span class="string">"dependencies"</span>: {
+    <span class="string">"react"</span>: <span class="string">"^18.0.0"</span>,
+    <span class="string">"typescript"</span>: <span class="string">"^5.0.0"</span>,
+    <span class="string">"python"</span>: <span class="string">"^3.11.0"</span>,
+    <span class="string">"node.js"</span>: <span class="string">"^20.0.0"</span>,
+    <span class="string">"vscode-extension-api"</span>: <span class="string">"latest"</span>,
+    <span class="string">"jupyterlab-extensions"</span>: <span class="string">"^4.0.0"</span>
+  },
+  <span class="string">"devDependencies"</span>: {
+    <span class="string">"github-copilot"</span>: <span class="string">"enterprise"</span>,
+    <span class="string">"cursor-ai"</span>: <span class="string">"pro"</span>,
+    <span class="string">"claude-code"</span>: <span class="string">"latest"</span>,
+    <span class="string">"prompt-engineering"</span>: <span class="string">"^2.0.0"</span>
+  },
+  <span class="string">"specializations"</span>: [
+    <span class="string">"VSCode Extension API (TreeDataProvider, LSP, WebView)"</span>,
+    <span class="string">"JupyterLab Extensions (Server, Frontend, Lumino)"</span>,
+    <span class="string">"Monorepo Architecture (NPM Workspaces)"</span>,
+    <span class="string">"AI-Assisted Development Workflows"</span>,
+    <span class="string">"System Design & Microservices"</span>
+  ],
+  <span class="string">"architecture"</span>: [
+    <span class="string">"Distributed Systems"</span>,
+    <span class="string">"Microservices"</span>,
+    <span class="string">"Performance Optimization"</span>,
+    <span class="string">"Developer Experience (DX)"</span>
+  ],
+  <span class="string">"impact_metrics"</span>: {
+    <span class="string">"developers_served"</span>: <span class="number">200</span>,
+    <span class="string">"daily_active_users"</span>: <span class="string">"1M+"</span>,
+    <span class="string">"productivity_improvement"</span>: <span class="string">"45-55%"</span>,
+    <span class="string">"performance_gains"</span>: <span class="string">"30-60%"</span>
+  }
+}<span class="cursor"></span>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="terminal-section">
+                <div class="terminal-prompt">cat contact.env</div>
+                <div class="code-block" data-lang="bash">
+<span class="comment"># Environment Variables - Contact Information</span>
+
+<span class="keyword">export</span> <span class="variable">NAME</span>=<span class="string">"Manoj Kumar Reddy Palasamudram"</span>
+<span class="keyword">export</span> <span class="variable">EMAIL</span>=<span class="string">"manojpls@icloud.com"</span>
+<span class="keyword">export</span> <span class="variable">PHONE</span>=<span class="string">"+1 (585) 537-9175"</span>
+<span class="keyword">export</span> <span class="variable">LOCATION</span>=<span class="string">"Buffalo, NY (Open to Remote)"</span>
+
+<span class="comment"># Professional Links</span>
+<span class="keyword">export</span> <span class="variable">GITHUB</span>=<span class="string">"https://github.com/manoj30075"</span>
+<span class="keyword">export</span> <span class="variable">LINKEDIN</span>=<span class="string">"https://linkedin.com/in/manojpls"</span>
+<span class="keyword">export</span> <span class="variable">PORTFOLIO</span>=<span class="string">"https://www.manojp.me"</span>
+
+<span class="comment"># Education</span>
+<span class="keyword">export</span> <span class="variable">MASTERS</span>=<span class="string">"MS Computer Science, RIT (3.59 GPA)"</span>
+<span class="keyword">export</span> <span class="variable">BACHELORS</span>=<span class="string">"BE Electronics, VTU, India"</span>
+
+<span class="comment"># Current Status</span>
+<span class="keyword">export</span> <span class="variable">STATUS</span>=<span class="string">"Available for AI/Developer Tools roles"</span>
+<span class="keyword">export</span> <span class="variable">VISA_STATUS</span>=<span class="string">"Requires H1B sponsorship"</span>
+<span class="keyword">export</span> <span class="variable">PREFERRED_COMPANIES</span>=<span class="string">"Anthropic,Scale AI,Databricks,Perplexity"</span>
+
+<span class="comment"># Quick Commands</span>
+<span class="function">echo</span> <span class="string">"Ready to build the future of AI-assisted development"</span><span class="cursor"></span>
+                </div>
+
+                <div class="terminal-grid">
+                    <div class="terminal-card">
+                        <h3>$ curl -X GET /contact/email</h3>
+                        <p><a href="mailto:manojpls@icloud.com">manojpls@icloud.com</a></p>
+                    </div>
+                    <div class="terminal-card">
+                        <h3>$ git clone github</h3>
+                        <p><a href="https://github.com/manoj30075" target="_blank">github.com/manoj30075</a></p>
+                    </div>
+                    <div class="terminal-card">
+                        <h3>$ connect --linkedin</h3>
+                        <p><a href="https://linkedin.com/in/manojpls" target="_blank">linkedin.com/in/manojpls</a></p>
+                    </div>
+                    <div class="terminal-card">
+                        <h3>$ wget portfolio</h3>
+                        <p><a href="https://www.manojp.me" target="_blank">manojp.me</a></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Terminal Status Bar -->
+        <div class="terminal-status">
+            <div class="status-left">
+                <span>~/portfolio</span>
+                <span>|</span>
+                <span>main</span>
+                <span>|</span>
+                <span>✓ ready</span>
             </div>
-        </section>
-
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Software Engineer with 4+ years of experience building scalable products and developer productivity tools from conception to deployment. Expert in full-stack development with specialization in React, TypeScript, and Python. Proven track record architecting developer tools serving 200+ users at LSEG and enterprise applications scaling to 1M+ daily active users at Vymo. Strong expertise in system design, microservices architecture, and modern development practices. Experienced with AI-assisted development workflows and automation tools to enhance team productivity and code quality.</p>
-        </section>
-
-        <section id="experience">
-            <h2>Work Experience</h2>
-            
-            <article class="job-entry">
-                <h3>Software Engineer</h3>
-                <p class="company-name">London Stock Exchange Group (LSEG)</p>
-                <p class="job-period">January 2024 – Present | Buffalo, NY</p>
-                <ul class="job-highlights">
-                    <li><strong>AI-Powered Developer Tools Architecture:</strong> Architected enterprise-scale IDE extension ecosystem combining VSCode Extension API (TreeDataProvider, CompletionItemProvider, DiagnosticProvider, WebView API) and JupyterLab Extensions (Server Extensions, Frontend Extensions, Lumino Framework) with integrated AI coding agents, serving 200+ financial analysts with intelligent code completion, automated debugging, and AI-powered workflow generation</li>
-                    <li><strong>Advanced Extension Development:</strong> Built sophisticated cross-platform extensions using VSCode Extension API for custom TreeDataProviders and intelligent CompletionItemProviders, JupyterLab server and frontend extensions with custom Lumino widgets, and Language Server Protocol (LSP) implementations for real-time code analysis and intelligent suggestions</li>
-                    <li><strong>Monorepo Architecture & Shared Libraries:</strong> Designed and implemented sophisticated monorepo structure using NPM Workspaces with shared TypeScript/Python libraries for cross-platform extension development, enabling code reuse across VSCode and JupyterLab ecosystems while reducing development overhead by 60%</li>
-                    <li><strong>Intelligent Code Completion & LSP:</strong> Developed custom Language Server implementations with advanced code completion, real-time diagnostics, and intelligent code suggestions, integrating AI-powered completion providers that improved developer productivity by 45% through context-aware recommendations and automated error detection</li>
-                    <li><strong>React-Based Extension UIs:</strong> Built complex developer-facing interfaces using React with TypeScript in VSCode WebViews and JupyterLab frontend extensions, creating responsive and interactive UIs for financial modeling tools with sophisticated state management and real-time data visualization</li>
-                    <li><strong>Extension Performance Optimization:</strong> Achieved 30% faster extension startup times through lazy loading, efficient resource management, and optimized extension lifecycle management, implementing advanced caching strategies and memory optimization techniques for large-scale financial datasets</li>
-                    <li><strong>AI Coding Agent Integration:</strong> Pioneered enterprise implementation of LLM-powered development tools (GitHub Copilot, Cursor, Claude Code) with custom prompt engineering, workflow automation, and intelligent code generation, achieving 55% team productivity improvement through automated testing and AI-powered code review processes</li>
-                    <li><strong>CLI Tools & Developer Experience:</strong> Created comprehensive command-line interfaces for extension development and deployment, automated testing frameworks for extension validation, and developer documentation systems that streamlined the extension development process across multiple teams</li>
-                    <li><strong>Extension Marketplace & Distribution:</strong> Managed complete extension lifecycle from development to production deployment, including packaging for VSCode Marketplace, internal distribution systems, and automated CI/CD pipelines for continuous extension updates and version management</li>
-                </ul>
-            </article>
-
-            <article class="job-entry">
-                <h3>Member of Technical Staff</h3>
-                <p class="company-name">Vymo</p>
-                <p class="job-period">May 2018 - July 2021 | Bengaluru, India</p>
-                <ul class="job-highlights">
-                    <li><strong>Product Architecture:</strong> Architected and built enterprise CRM platform from ground up, designing scalable microservices architecture serving 1M+ daily active users across banking and insurance sectors</li>
-                    <li><strong>System Design Leadership:</strong> Led architectural decisions for distributed system handling high-volume transactions, designing fault-tolerant architecture with 99.99% uptime across multiple data centers</li>
-                    <li><strong>Full-Stack Product Development:</strong> Built complete product features end-to-end including user research, technical architecture, implementation, and go-to-market strategy resulting in 25% improvement in user engagement</li>
-                    <li><strong>Scalable Backend Architecture:</strong> Designed and implemented microservices architecture using Node.js, Express.js, and MongoDB with event-driven communication patterns for real-time data synchronization</li>
-                    <li><strong>Frontend Architecture:</strong> Architected modular React application with sophisticated state management using Redux and Redux-Saga, enabling complex business workflows and predictable data flow</li>
-                    <li><strong>Performance Architecture:</strong> Designed performance optimization strategies including code splitting, lazy loading, and caching mechanisms, achieving 45% reduction in application load times</li>
-                    <li><strong>Technical Leadership:</strong> Led cross-functional engineering teams as Scrum Master, establishing development processes and architectural standards that improved team velocity by 20%</li>
-                    <li><strong>AI-Assisted Development Pioneer:</strong> Early enterprise adopter of LLM-powered coding assistants, architecting automated development workflows with custom prompt engineering that reduced coding time by 45% and improved code quality through intelligent suggestions, automated testing, and AI-powered code review</li>
-                    <li><strong>Product Strategy:</strong> Collaborated with product managers on technical feasibility and architectural trade-offs, contributing to product roadmap decisions and feature prioritization</li>
-                </ul>
-            </article>
-        </section>
-
-        <section id="projects">
-            <h2>Projects</h2>
-            
-            <article class="project-entry">
-                <h3>Divergent Paths - AI-Powered Scenario Explorer</h3>
-                <p class="project-period">September 2024</p>
-                <p class="project-description">Full-stack web application inspired by Robert Frost's "The Road Not Taken," enabling users to explore AI-generated "What If" scenarios across multiple life domains including career, relationships, and personal growth.</p>
-                <ul class="project-highlights">
-                    <li><strong>AI Integration:</strong> Implemented extensive OpenAI GPT API integration for dynamic, context-aware scenario generation with custom prompt engineering and intelligent response processing</li>
-                    <li><strong>Modern Frontend:</strong> Built responsive React application using TypeScript, Vite build system, Tailwind CSS for styling, with optimized user experience and mobile-first design</li>
-                    <li><strong>Backend Architecture:</strong> Developed secure Node.js backend with Express.js framework, implementing rate limiting, input validation, and API key management for production deployment</li>
-                    <li><strong>Performance Optimization:</strong> Achieved sub-300ms response times through API caching, request debouncing, and optimized React rendering patterns</li>
-                    <li><strong>Deployment:</strong> Implemented CI/CD pipeline with automated testing and deployment to Netlify with environment-based configuration management</li>
-                </ul>
-                <p>
-                    <a href="https://the-road-not-taken.netlify.app/" target="_blank" rel="noopener noreferrer">View Live Project →</a>
-                </p>
-            </article>
-            
-            <article class="project-entry">
-                <h3>DevFlow CLI - Advanced Claude Code Workflow Automation</h3>
-                <p class="project-period">October 2024</p>
-                <p class="project-description">Comprehensive CLI tool extending Claude Code capabilities with custom slash commands, automated git workflows, and intelligent code review processes designed to enhance developer productivity and streamline development workflows.</p>
-                <ul class="project-highlights">
-                    <li><strong>Claude Code Extension:</strong> Built sophisticated CLI tool extending Claude Code capabilities with custom slash commands, automated git workflows, and intelligent code review processes for enhanced developer productivity</li>
-                    <li><strong>Prompt Template System:</strong> Developed advanced prompt template system with .claude/commands integration, enabling team-wide workflow standardization and automated debugging loops, log analysis, and code generation patterns</li>
-                    <li><strong>Git Workflow Automation:</strong> Implemented comprehensive git workflow automation using Claude API integration, including intelligent commit message generation, automated PR creation, merge conflict resolution, and CI/CD pipeline optimization</li>
-                    <li><strong>Enterprise Integration:</strong> Created enterprise-ready deployment scripts with MCP (Model Control Protocol) integration for seamless tool integration, automated testing frameworks, and continuous workflow optimization achieving 40% reduction in manual development tasks</li>
-                    <li><strong>Extensible Architecture:</strong> Designed scalable architecture supporting custom tool integrations, IDE extensions compatibility, and team collaboration features with comprehensive documentation and usage analytics</li>
-                </ul>
-            </article>
-        </section>
-
-        <section id="skills">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h4>Software Architecture & Design</h4>
-                    <p><strong>System Design:</strong> Microservices Architecture, Distributed Systems, Scalable Backend Design<br>
-                    <strong>Product Development:</strong> End-to-End Product Building, Technical Leadership, Architecture Planning<br>
-                    <strong>Performance:</strong> High-Scale System Optimization, Caching Strategies, Load Balancing</p>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>IDE Extension Development</h4>
-                    <p><strong>VSCode APIs:</strong> Extension API, Language Server Protocol, TreeDataProvider, CompletionItemProvider, DiagnosticProvider, WebView API<br>
-                    <strong>JupyterLab:</strong> Server Extensions, Frontend Extensions, Kernel Development, Widget System, Lumino Framework</p>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>Programming Languages</h4>
-                    <p><strong>Expert:</strong> TypeScript, JavaScript, Python<br>
-                    <strong>Extension Development:</strong> Node.js APIs, Python Extension APIs<br>
-                    <strong>Supporting:</strong> Java, SQL, HTML5, CSS3, Bash</p>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>Extension Architecture</h4>
-                    <p><strong>Monorepo Tools:</strong> Lerna, Nx, Yarn Workspaces<br>
-                    <strong>Shared Libraries:</strong> Cross-platform TypeScript/Python libs<br>
-                    <strong>Testing:</strong> Mocha, Jest, Extension Testing Framework</p>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>Developer Tools Ecosystem</h4>
-                    <p><strong>Language Servers:</strong> LSP Implementation, Custom Protocols<br>
-                    <strong>Debugging:</strong> DAP (Debug Adapter Protocol), Custom Debuggers<br>
-                    <strong>Package Management:</strong> VSCode Marketplace, NPM, PyPI</p>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>React & Frontend Expertise</h4>
-                    <p><strong>Expert React Development:</strong> React.js, React Hooks, TypeScript, Advanced Component Architecture<br>
-                    <strong>Developer Interfaces:</strong> VSCode WebViews, JupyterLab Frontend, Developer-facing UIs<br>
-                    <strong>State Management:</strong> Redux, MobX, Context API, Complex State Architectures</p>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>Backend & APIs</h4>
-                    <p><strong>Extension Backends:</strong> JupyterLab Server Extensions, WebSocket Handlers<br>
-                    <strong>APIs:</strong> RESTful APIs, GraphQL, Custom Extension APIs<br>
-                    <strong>Python:</strong> Flask, FastAPI, Jupyter Server Architecture</p>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>DevOps & Deployment</h4>
-                    <p><strong>Extension Publishing:</strong> VSCode Marketplace, Extension CI/CD<br>
-                    <strong>Containerization:</strong> Docker, Kubernetes for JupyterHub<br>
-                    <strong>Automation:</strong> GitHub Actions, Extension Testing Pipelines</p>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>AI-Assisted Coding & LLMs</h4>
-                    <p><strong>LLM Integration:</strong> GitHub Copilot, Cursor AI, Claude Code, Devin AI, Prompt Engineering<br>
-                    <strong>AI Workflow Orchestration:</strong> AI-Assisted Code Generation, Automated Testing, Intelligent Code Review<br>
-                    <strong>Developer Productivity:</strong> AI-Powered Development Workflows, Code Quality Enhancement, LLM-based Automation</p>
-                </div>
-                
-                <div class="skill-category">
-                    <h4>Specialized Expertise</h4>
-                    <p><strong>Performance:</strong> Extension Startup Optimization, Memory Management<br>
-                    <strong>UX Design:</strong> IDE User Experience, Developer Workflow Optimization<br>
-                    <strong>Documentation:</strong> Extension Documentation, API References</p>
-                </div>
+            <div class="status-right">
+                <span>UTF-8</span>
+                <span>|</span>
+                <span>JS/TS</span>
+                <span>|</span>
+                <span id="current-time"></span>
             </div>
-        </section>
-
-        <section id="education">
-            <h2>Education</h2>
-            
-            <article class="education-entry">
-                <h3>Master of Science in Computer Science</h3>
-                <p class="institution">Rochester Institute of Technology</p>
-                <p class="education-period">August 2021 - December 2023 | Rochester, NY | GPA: 3.59</p>
-                <p class="coursework"><strong>Relevant Coursework:</strong> Advanced Object-Oriented Programming Concepts, Big Data Analytics, Database Management Systems, Distributed Systems Architecture, System Design Patterns, Computer Networks, Analysis of Algorithms, Advanced Data Structures, Software Engineering Principles</p>
-            </article>
-            
-            <article class="education-entry">
-                <h3>Bachelor of Engineering</h3>
-                <p class="institution">Visvesvaraya Technological University</p>
-                <p class="education-period">August 2013 - June 2017 | Bengaluru, India</p>
-                <p class="degree-focus">Electrical, Electronics and Communications Engineering</p>
-            </article>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Information</h2>
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <span class="contact-label">Email</span>
-                    <a href="mailto:manojpls@icloud.com">manojpls@icloud.com</a>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-label">Phone</span>
-                    <a href="tel:+15855379175">(585) 537-9175</a>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-label">Location</span>
-                    <span>Buffalo, NY (Open to Remote)</span>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-label">GitHub</span>
-                    <a href="https://github.com/manoj30075" target="_blank" rel="noopener noreferrer">github.com/manoj30075</a>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-label">LinkedIn</span>
-                    <a href="https://linkedin.com/in/manojpls" target="_blank" rel="noopener noreferrer">linkedin.com/in/manojpls</a>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-label">Portfolio</span>
-                    <a href="https://www.manojp.me" target="_blank" rel="noopener noreferrer">manojp.me</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Manoj Kumar Reddy Palasamudram. All rights reserved.</p>
-    </footer>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
