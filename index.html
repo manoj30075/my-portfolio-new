@@ -3,260 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Manoj Kumar Reddy Palasamudram - Software Engineer | Terminal-Style Portfolio | Developer Tools Expert">
-    <meta name="keywords" content="Software Engineer, Terminal Portfolio, Developer Tools, VSCode Extensions, JupyterLab Extensions, React Developer, Seattle">
-    <title>manoj@terminal:~$ whoami</title>
+    <meta name="description" content="Manoj Kumar Reddy Palasamudram - Software Engineer | Developer Tools Expert | React, TypeScript, Python">
+    <meta name="keywords" content="Software Engineer, Developer Tools, VSCode Extensions, JupyterLab Extensions, React Developer, TypeScript, Seattle">
+    <title>Manoj Palasamudram | Software Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="terminal-window">
-        <!-- Terminal Header -->
-        <div class="terminal-header">
-            <div class="terminal-title">manoj@portfolio:~</div>
-            <div class="terminal-controls">
-                <button class="terminal-button close"></button>
-                <button class="terminal-button minimize"></button>
-                <button class="terminal-button maximize"></button>
+    <div class="container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <h1>Manoj Kumar Reddy Palasamudram</h1>
+            <p class="title">Software Engineer | Developer Productivity Specialist</p>
+            <div class="hero-details">
+                <span class="location">Buffalo, NY (Open to Remote)</span>
+                <span class="separator">•</span>
+                <span class="contact">manojpls@icloud.com</span>
+                <span class="separator">•</span>
+                <span class="highlight">200+ developers served, 45% productivity boost</span>
             </div>
-        </div>
+            <p class="specialization">React • TypeScript • Python • VSCode Extensions • JupyterLab • AI-Assisted Development</p>
+        </header>
 
-        <!-- Terminal Navigation Tabs -->
-        <nav class="terminal-nav">
-            <button class="nav-tab active" data-tab="about">about.md</button>
-            <button class="nav-tab" data-tab="experience">experience.js</button>
-            <button class="nav-tab" data-tab="projects">projects.json</button>
-            <button class="nav-tab" data-tab="skills">package.json</button>
-            <button class="nav-tab" data-tab="contact">contact.env</button>
-        </nav>
+        <!-- About Section -->
+        <section class="about">
+            <h2>About</h2>
+            <p>Software Engineer with 4+ years building scalable products and developer productivity tools. Expert in full-stack development with specialization in React, TypeScript, and Python. Proven track record architecting developer tools serving 200+ users at LSEG and enterprise applications scaling to 1M+ daily active users at Vymo. Strong expertise in system design, microservices architecture, and modern development practices with AI-assisted development workflows.</p>
+        </section>
 
-        <!-- Terminal Content -->
-        <main class="terminal-content">
-            <!-- About Section -->
-            <section id="about" class="terminal-section active">
-                <div class="terminal-prompt">cat about.md</div>
-                <div class="code-block" data-lang="markdown">
-<span class="comment"># Manoj Kumar Reddy Palasamudram</span>
-<span class="comment">## Software Engineer | Developer Productivity Specialist</span>
-
-<span class="string">```bash</span>
-<span class="keyword">whoami</span>: Software Engineer with 4+ years building scalable products and developer tools
-<span class="keyword">location</span>: Buffalo, NY (Open to Remote)
-<span class="keyword">specialization</span>: React, TypeScript, Python, VSCode Extensions, JupyterLab
-<span class="keyword">impact</span>: 200+ developers at LSEG, 1M+ users at Vymo
-<span class="keyword">expertise</span>: System design, microservices, AI-assisted development
-<span class="string">```</span>
-
-<span class="comment">### Current Focus</span>
-Building developer productivity tools and AI-assisted coding workflows.
-Expert in IDE extension development with proven track record of
-enterprise-scale implementations and significant productivity improvements.
-
-<span class="comment">### Philosophy</span>
-Code as craft. Terminals as canvas. Developer experience as art.<span class="cursor"></span>
+        <!-- Experience Section -->
+        <section class="experience">
+            <h2>Experience</h2>
+            
+            <div class="job">
+                <div class="job-header">
+                    <h3>Software Engineer</h3>
+                    <span class="company">London Stock Exchange Group (LSEG)</span>
+                    <span class="period">Jan 2024 - Present</span>
                 </div>
-            </section>
-
-            <!-- Experience Section -->
-            <section id="experience" class="terminal-section">
-                <div class="terminal-prompt">node experience.js</div>
-                <div class="code-block" data-lang="javascript">
-<span class="comment">// Professional Experience</span>
-
-<span class="keyword">const</span> <span class="function">lsegRole</span> = () => {
-  <span class="keyword">return</span> {
-    <span class="variable">company</span>: <span class="string">"London Stock Exchange Group (LSEG)"</span>,
-    <span class="variable">position</span>: <span class="string">"Software Engineer"</span>,
-    <span class="variable">duration</span>: <span class="string">"January 2024 - Present"</span>,
-    <span class="variable">location</span>: <span class="string">"Buffalo, NY"</span>,
-    <span class="variable">achievements</span>: [
-      <span class="string">"AI-Powered Developer Tools: VSCode + JupyterLab extensions ecosystem"</span>,
-      <span class="string">"Extension APIs: TreeDataProvider, LSP, WebView, Lumino Framework"</span>,
-      <span class="string">"Monorepo Architecture: NPM Workspaces + shared TypeScript/Python libs"</span>,
-      <span class="string">"Performance: 30% faster startup, 60% reduced dev overhead"</span>,
-      <span class="string">"AI Integration: GitHub Copilot + Claude Code workflow automation"</span>,
-      <span class="string">"Impact: 200+ analysts, 45% productivity improvement"</span>
-    ]
-  };
-};
-
-<span class="keyword">const</span> <span class="function">vymoRole</span> = () => {
-  <span class="keyword">return</span> {
-    <span class="variable">company</span>: <span class="string">"Vymo"</span>,
-    <span class="variable">position</span>: <span class="string">"Member of Technical Staff"</span>,
-    <span class="variable">duration</span>: <span class="string">"May 2018 - July 2021"</span>,
-    <span class="variable">location</span>: <span class="string">"Bengaluru, India"</span>,
-    <span class="variable">achievements</span>: [
-      <span class="string">"Enterprise CRM: Microservices architecture for 1M+ daily users"</span>,
-      <span class="string">"Full-Stack: React + Redux + Node.js + MongoDB architecture"</span>,
-      <span class="string">"Performance: 45% faster load times, 99.99% uptime"</span>,
-      <span class="string">"Leadership: Scrum Master, 20% improved team velocity"</span>,
-      <span class="string">"AI Pioneer: Early LLM integration, 45% coding time reduction"</span>
-    ]
-  };
-};
-
-<span class="comment">// Execute experience showcase</span>
-[<span class="function">lsegRole</span>(), <span class="function">vymoRole</span>()].<span class="function">forEach</span>(<span class="variable">role</span> => {
-  console.<span class="function">log</span>(<span class="string">`${role.company}: ${role.achievements.length} key achievements`</span>);
-});<span class="cursor"></span>
-                </div>
-            </section>
-
-            <!-- Projects Section -->
-            <section id="projects" class="terminal-section">
-                <div class="terminal-prompt">cat projects.json</div>
-                <div class="code-block" data-lang="json">
-{
-  <span class="string">"featured_projects"</span>: [
-    {
-      <span class="string">"name"</span>: <span class="string">"DevFlow CLI - Advanced Claude Code Workflow Automation"</span>,
-      <span class="string">"date"</span>: <span class="string">"2024-10"</span>,
-      <span class="string">"tech_stack"</span>: [<span class="string">"TypeScript"</span>, <span class="string">"Node.js"</span>, <span class="string">"Claude API"</span>, <span class="string">"Git Hooks"</span>],
-      <span class="string">"description"</span>: <span class="string">"CLI tool extending Claude Code capabilities"</span>,
-      <span class="string">"features"</span>: [
-        <span class="string">"Custom slash commands + .claude/commands integration"</span>,
-        <span class="string">"Automated git workflows + intelligent PR creation"</span>,
-        <span class="string">"MCP (Model Control Protocol) enterprise integration"</span>,
-        <span class="string">"40% reduction in manual development tasks"</span>
-      ],
-      <span class="string">"impact"</span>: <span class="string">"Enterprise-ready deployment with team collaboration"</span>
-    },
-    {
-      <span class="string">"name"</span>: <span class="string">"Divergent Paths - AI-Powered Scenario Explorer"</span>,
-      <span class="string">"date"</span>: <span class="string">"2024-09"</span>,
-      <span class="string">"tech_stack"</span>: [<span class="string">"React"</span>, <span class="string">"TypeScript"</span>, <span class="string">"OpenAI API"</span>, <span class="string">"Node.js"</span>],
-      <span class="string">"description"</span>: <span class="string">"AI-generated 'What If' scenario exploration tool"</span>,
-      <span class="string">"features"</span>: [
-        <span class="string">"OpenAI GPT API integration + custom prompt engineering"</span>,
-        <span class="string">"React + TypeScript + Vite build system"</span>,
-        <span class="string">"Sub-300ms response times with optimized caching"</span>,
-        <span class="string">"CI/CD pipeline with automated deployment"</span>
-      ],
-      <span class="string">"live_url"</span>: <span class="string">"https://the-road-not-taken.netlify.app/"</span>
-    }
-  ],
-  <span class="string">"total_projects"</span>: <span class="number">2</span>,
-  <span class="string">"github_profile"</span>: <span class="string">"https://github.com/manoj30075"</span>
-}<span class="cursor"></span>
-                </div>
-            </section>
-
-            <!-- Skills Section -->
-            <section id="skills" class="terminal-section">
-                <div class="terminal-prompt">cat package.json</div>
-                <div class="code-block" data-lang="json">
-{
-  <span class="string">"name"</span>: <span class="string">"manoj-developer-toolkit"</span>,
-  <span class="string">"version"</span>: <span class="string">"4.2.0"</span>,
-  <span class="string">"description"</span>: <span class="string">"Full-stack developer with AI-assisted coding expertise"</span>,
-  <span class="string">"main"</span>: <span class="string">"developer-productivity.js"</span>,
-  <span class="string">"dependencies"</span>: {
-    <span class="string">"react"</span>: <span class="string">"^18.0.0"</span>,
-    <span class="string">"typescript"</span>: <span class="string">"^5.0.0"</span>,
-    <span class="string">"python"</span>: <span class="string">"^3.11.0"</span>,
-    <span class="string">"node.js"</span>: <span class="string">"^20.0.0"</span>,
-    <span class="string">"vscode-extension-api"</span>: <span class="string">"latest"</span>,
-    <span class="string">"jupyterlab-extensions"</span>: <span class="string">"^4.0.0"</span>
-  },
-  <span class="string">"devDependencies"</span>: {
-    <span class="string">"github-copilot"</span>: <span class="string">"enterprise"</span>,
-    <span class="string">"cursor-ai"</span>: <span class="string">"pro"</span>,
-    <span class="string">"claude-code"</span>: <span class="string">"latest"</span>,
-    <span class="string">"prompt-engineering"</span>: <span class="string">"^2.0.0"</span>
-  },
-  <span class="string">"specializations"</span>: [
-    <span class="string">"VSCode Extension API (TreeDataProvider, LSP, WebView)"</span>,
-    <span class="string">"JupyterLab Extensions (Server, Frontend, Lumino)"</span>,
-    <span class="string">"Monorepo Architecture (NPM Workspaces)"</span>,
-    <span class="string">"AI-Assisted Development Workflows"</span>,
-    <span class="string">"System Design & Microservices"</span>
-  ],
-  <span class="string">"architecture"</span>: [
-    <span class="string">"Distributed Systems"</span>,
-    <span class="string">"Microservices"</span>,
-    <span class="string">"Performance Optimization"</span>,
-    <span class="string">"Developer Experience (DX)"</span>
-  ],
-  <span class="string">"impact_metrics"</span>: {
-    <span class="string">"developers_served"</span>: <span class="number">200</span>,
-    <span class="string">"daily_active_users"</span>: <span class="string">"1M+"</span>,
-    <span class="string">"productivity_improvement"</span>: <span class="string">"45-55%"</span>,
-    <span class="string">"performance_gains"</span>: <span class="string">"30-60%"</span>
-  }
-}<span class="cursor"></span>
-                </div>
-            </section>
-
-            <!-- Contact Section -->
-            <section id="contact" class="terminal-section">
-                <div class="terminal-prompt">cat contact.env</div>
-                <div class="code-block" data-lang="bash">
-<span class="comment"># Environment Variables - Contact Information</span>
-
-<span class="keyword">export</span> <span class="variable">NAME</span>=<span class="string">"Manoj Kumar Reddy Palasamudram"</span>
-<span class="keyword">export</span> <span class="variable">EMAIL</span>=<span class="string">"manojpls@icloud.com"</span>
-<span class="keyword">export</span> <span class="variable">PHONE</span>=<span class="string">"+1 (585) 537-9175"</span>
-<span class="keyword">export</span> <span class="variable">LOCATION</span>=<span class="string">"Buffalo, NY (Open to Remote)"</span>
-
-<span class="comment"># Professional Links</span>
-<span class="keyword">export</span> <span class="variable">GITHUB</span>=<span class="string">"https://github.com/manoj30075"</span>
-<span class="keyword">export</span> <span class="variable">LINKEDIN</span>=<span class="string">"https://linkedin.com/in/manojpls"</span>
-<span class="keyword">export</span> <span class="variable">PORTFOLIO</span>=<span class="string">"https://www.manojp.me"</span>
-
-<span class="comment"># Education</span>
-<span class="keyword">export</span> <span class="variable">MASTERS</span>=<span class="string">"MS Computer Science, RIT (3.59 GPA)"</span>
-<span class="keyword">export</span> <span class="variable">BACHELORS</span>=<span class="string">"BE Electronics, VTU, India"</span>
-
-<span class="comment"># Current Status</span>
-<span class="keyword">export</span> <span class="variable">STATUS</span>=<span class="string">"Available for AI/Developer Tools roles"</span>
-<span class="keyword">export</span> <span class="variable">VISA_STATUS</span>=<span class="string">"Requires H1B sponsorship"</span>
-<span class="keyword">export</span> <span class="variable">PREFERRED_COMPANIES</span>=<span class="string">"Anthropic,Scale AI,Databricks,Perplexity"</span>
-
-<span class="comment"># Quick Commands</span>
-<span class="function">echo</span> <span class="string">"Ready to build the future of AI-assisted development"</span><span class="cursor"></span>
-                </div>
-
-                <div class="terminal-grid">
-                    <div class="terminal-card">
-                        <h3>$ curl -X GET /contact/email</h3>
-                        <p><a href="mailto:manojpls@icloud.com">manojpls@icloud.com</a></p>
-                    </div>
-                    <div class="terminal-card">
-                        <h3>$ git clone github</h3>
-                        <p><a href="https://github.com/manoj30075" target="_blank">github.com/manoj30075</a></p>
-                    </div>
-                    <div class="terminal-card">
-                        <h3>$ connect --linkedin</h3>
-                        <p><a href="https://linkedin.com/in/manojpls" target="_blank">linkedin.com/in/manojpls</a></p>
-                    </div>
-                    <div class="terminal-card">
-                        <h3>$ wget portfolio</h3>
-                        <p><a href="https://www.manojp.me" target="_blank">manojp.me</a></p>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- Terminal Status Bar -->
-        <div class="terminal-status">
-            <div class="status-left">
-                <span>~/portfolio</span>
-                <span>|</span>
-                <span>main</span>
-                <span>|</span>
-                <span>✓ ready</span>
+                <ul class="achievements">
+                    <li><strong>AI-Powered Developer Tools:</strong> Architected VSCode + JupyterLab extensions ecosystem serving 200+ analysts</li>
+                    <li><strong>Extension APIs:</strong> Built TreeDataProvider, LSP, WebView, Lumino Framework implementations</li>
+                    <li><strong>Monorepo Architecture:</strong> NPM Workspaces + shared TypeScript/Python libraries, 60% reduced overhead</li>
+                    <li><strong>Performance:</strong> 30% faster startup times, 45% productivity improvement through AI integration</li>
+                    <li><strong>AI Integration:</strong> GitHub Copilot + Claude Code workflow automation, 55% team productivity boost</li>
+                </ul>
             </div>
-            <div class="status-right">
-                <span>UTF-8</span>
-                <span>|</span>
-                <span>JS/TS</span>
-                <span>|</span>
-                <span id="current-time"></span>
+
+            <div class="job">
+                <div class="job-header">
+                    <h3>Member of Technical Staff</h3>
+                    <span class="company">Vymo</span>
+                    <span class="period">May 2018 - Jul 2021</span>
+                </div>
+                <ul class="achievements">
+                    <li><strong>Enterprise CRM:</strong> Microservices architecture serving 1M+ daily users, 99.99% uptime</li>
+                    <li><strong>Full-Stack:</strong> React + Redux + Node.js + MongoDB architecture, 45% faster load times</li>
+                    <li><strong>Leadership:</strong> Scrum Master, established dev processes, 20% improved team velocity</li>
+                    <li><strong>AI Pioneer:</strong> Early LLM integration, 45% coding time reduction through intelligent workflows</li>
+                </ul>
             </div>
-        </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects">
+            <h2>Projects</h2>
+            
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>DevFlow CLI</h3>
+                    <p class="project-meta">Oct 2024 • TypeScript, Node.js, Claude API</p>
+                    <p>Advanced Claude Code workflow automation CLI tool with custom slash commands, automated git workflows, and MCP integration. 40% reduction in manual development tasks.</p>
+                    <div class="project-tags">
+                        <span class="tag">CLI Tools</span>
+                        <span class="tag">AI Automation</span>
+                        <span class="tag">Git Workflows</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Divergent Paths</h3>
+                    <p class="project-meta">Sep 2024 • React, TypeScript, OpenAI API</p>
+                    <p>AI-powered scenario exploration tool with custom prompt engineering. Sub-300ms response times with optimized caching and CI/CD pipeline.</p>
+                    <div class="project-links">
+                        <a href="https://the-road-not-taken.netlify.app/" target="_blank">View Live →</a>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">AI Integration</span>
+                        <span class="tag">React</span>
+                        <span class="tag">Performance</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills">
+            <h2>Technical Skills</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <h4>Languages</h4>
+                    <p>TypeScript, JavaScript, Python, Node.js, Java, SQL</p>
+                </div>
+                
+                <div class="skill-group">
+                    <h4>Frontend</h4>
+                    <p>React, Redux, TypeScript, HTML5, CSS3, Responsive Design</p>
+                </div>
+                
+                <div class="skill-group">
+                    <h4>Backend</h4>
+                    <p>Node.js, Express, MongoDB, PostgreSQL, RESTful APIs, GraphQL</p>
+                </div>
+                
+                <div class="skill-group">
+                    <h4>Developer Tools</h4>
+                    <p>VSCode Extensions, JupyterLab, Language Server Protocol, WebView API</p>
+                </div>
+                
+                <div class="skill-group">
+                    <h4>Architecture</h4>
+                    <p>Microservices, System Design, Monorepo (NPM Workspaces), Performance Optimization</p>
+                </div>
+                
+                <div class="skill-group">
+                    <h4>AI & Automation</h4>
+                    <p>GitHub Copilot, Claude Code, Prompt Engineering, Workflow Automation</p>
+                </div>
+                
+                <div class="skill-group">
+                    <h4>DevOps</h4>
+                    <p>Docker, CI/CD, GitHub Actions, AWS, System Monitoring</p>
+                </div>
+                
+                <div class="skill-group">
+                    <h4>Specializations</h4>
+                    <p>IDE Extensions, Developer Experience, Enterprise Tools, AI-Assisted Development</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Education Section -->
+        <section class="contact-education">
+            <div class="contact-edu-grid">
+                <div class="contact">
+                    <h2>Contact</h2>
+                    <div class="contact-info">
+                        <p><strong>Email:</strong> <a href="mailto:manojpls@icloud.com">manojpls@icloud.com</a></p>
+                        <p><strong>Phone:</strong> <a href="tel:+15855379175">(585) 537-9175</a></p>
+                        <p><strong>Location:</strong> Buffalo, NY (Open to Remote)</p>
+                        <p><strong>GitHub:</strong> <a href="https://github.com/manoj30075" target="_blank">github.com/manoj30075</a></p>
+                        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/manojpls" target="_blank">linkedin.com/in/manojpls</a></p>
+                        <p><strong>Portfolio:</strong> <a href="https://www.manojp.me" target="_blank">manojp.me</a></p>
+                    </div>
+                </div>
+
+                <div class="education">
+                    <h2>Education</h2>
+                    <div class="edu-item">
+                        <h4>Master of Science in Computer Science</h4>
+                        <p class="institution">Rochester Institute of Technology</p>
+                        <p class="period">Aug 2021 - Dec 2023 | GPA: 3.59</p>
+                    </div>
+                    <div class="edu-item">
+                        <h4>Bachelor of Engineering</h4>
+                        <p class="institution">Visvesvaraya Technological University</p>
+                        <p class="period">Aug 2013 - Jun 2017 | Electronics & Communications</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Manoj Kumar Reddy Palasamudram. Available for AI/Developer Tools roles requiring H1B sponsorship.</p>
+            <p class="status">Ready to build the future of AI-assisted development • <span id="current-time"></span></p>
+        </footer>
     </div>
 
     <script src="script.js"></script>
