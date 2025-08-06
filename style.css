@@ -383,24 +383,55 @@ footer {
         --space-lg: 24px;
         --space-xl: 32px;
         --space-xxl: 48px;
-        --section-spacing: 32px;
+        --section-spacing: 60px;
     }
 
     .container {
-        padding: var(--space-md) var(--space-sm);
+        padding: var(--space-lg) var(--space-md);
     }
 
     h1 {
         font-size: 2rem;
+        line-height: 1.2;
     }
 
     h2 {
+        font-size: 1.5rem;
+    }
+
+    .title {
         font-size: 1.25rem;
+        margin-bottom: var(--space-sm) !important;
+    }
+
+    .hero {
+        padding: var(--space-xl) 0;
     }
 
     .hero-details {
-        flex-direction: column;
-        gap: var(--space-xs);
+        display: block;
+        margin-bottom: var(--space-sm);
+        line-height: 1.8;
+    }
+
+    .hero-details span {
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    .hero-details .separator {
+        display: none;
+    }
+
+    .hero-details .highlight {
+        margin-top: var(--space-xs);
+        padding-top: var(--space-xs);
+        border-top: 1px solid var(--accent-border);
+    }
+
+    .specialization {
+        font-size: 0.875rem;
+        line-height: 1.6;
     }
 
     .job-header {
@@ -434,24 +465,43 @@ footer {
 }
 
 @media (max-width: 480px) {
+    :root {
+        --section-spacing: 48px;
+    }
+
     .container {
-        padding: var(--space-sm);
+        padding: var(--space-md) var(--space-sm);
     }
 
     h1 {
         font-size: 1.75rem;
+        margin-bottom: var(--space-xs);
+    }
+
+    .title {
+        font-size: 1.125rem;
     }
 
     .hero {
         padding: var(--space-lg) 0;
+        margin-bottom: var(--space-xl);
+    }
+
+    .hero-details {
+        font-size: 0.875rem;
     }
 
     .specialization {
-        font-size: 0.9rem;
+        font-size: 0.8125rem;
+        word-break: break-word;
+    }
+
+    .about p {
+        font-size: 1rem;
     }
 
     .project-card {
-        grid-template-columns: 1fr;
+        padding: var(--space-md);
     }
 
     .contact-info strong {
