@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mini apps by Manoj (Manu) Palasamudram – handy tools for developers.">
+  <link rel="canonical" href="https://www.manojp.me/apps.html">
+  <meta name="theme-color" content="#000000">
+  <title>Mini Apps | Manoj Palasamudram</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="apps/apps.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="top-nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="/index.html">Portfolio</a>
+      <a href="/apps.html" aria-current="page">Mini Apps</a>
+    </div>
+  </nav>
+
+  <main id="main" class="container" role="main">
+    <header class="hero" id="apps-home">
+      <h1>Mini Apps</h1>
+      <p class="title">Tiny, focused tools that save developers time</p>
+      <div class="hero-details">
+        <span class="highlight">Handy utilities • No tracking • Works offline</span>
+      </div>
+    </header>
+
+    <section aria-labelledby="apps-heading">
+      <h2 id="apps-heading">Available Apps</h2>
+      <button id="toggle-apps" class="toggle-apps" aria-expanded="false" aria-controls="apps-grid">Show all apps</button>
+
+      <div id="apps-grid" class="apps-grid" hidden>
+        <a class="app-card" href="/apps/invisible-inspector.html">
+          <div class="app-card-header">
+            <h3>Invisible Inspector</h3>
+            <span class="app-tag">Security • Text</span>
+          </div>
+          <p class="app-desc">Detects and highlights zero‑width characters and Unicode confusables. Clean and normalize text safely.</p>
+          <ul class="app-features">
+            <li>Finds zero‑width and soft hyphens</li>
+            <li>Flags Cyrillic/Greek confusables in ASCII code</li>
+            <li>One‑click clean & NFKC normalization</li>
+          </ul>
+          <div class="app-cta">Open →</div>
+        </a>
+
+        <!-- Future apps placeholder -->
+        <div class="app-card disabled" aria-disabled="true">
+          <div class="app-card-header">
+            <h3>Coming Soon</h3>
+            <span class="app-tag">Utility</span>
+          </div>
+          <p class="app-desc">More compact, high‑impact tools will appear here.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Manoj (Manu) Palasamudram. Mini Apps collection.</p>
+    </footer>
+  </main>
+
+  <script src="apps/apps.js" defer></script>
+</body>
+</html>
+
+

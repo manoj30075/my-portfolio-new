@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Invisible Inspector – detect and clean zero‑width and confusable Unicode.">
+  <title>Invisible Inspector | Mini App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/apps/apps.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="top-nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="/index.html">Portfolio</a>
+      <a href="/apps.html">Mini Apps</a>
+      <span aria-hidden="true">/</span>
+      <span>Invisible Inspector</span>
+    </div>
+  </nav>
+
+  <main id="main" class="container" role="main">
+    <header class="hero">
+      <h1>Invisible Inspector</h1>
+      <p class="title">Detect zero‑width and Unicode confusables. Clean and normalize safely.</p>
+      <div class="hero-details">
+        <span class="highlight">Useful for code reviews, logs, and pasted content</span>
+      </div>
+    </header>
+
+    <section class="app-layout" aria-labelledby="tool-heading">
+      <h2 id="tool-heading">Inspector</h2>
+
+      <div class="app-controls">
+        <button class="btn primary" id="scan-btn">Scan</button>
+        <button class="btn" id="clean-btn">Clean invisibles</button>
+        <button class="btn" id="normalize-btn">Normalize (NFKC)</button>
+        <button class="btn" id="copy-clean-btn">Copy cleaned</button>
+      </div>
+
+      <div class="app-io">
+        <div class="panel">
+          <header>Input</header>
+          <textarea id="input" placeholder="Paste or type text here…"></textarea>
+          <div class="meta" id="input-meta">0 chars</div>
+        </div>
+        <div class="panel">
+          <header>Output</header>
+          <pre id="output" aria-live="polite"></pre>
+          <div class="meta" id="output-meta">No issues detected</div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="about-heading">
+      <h2 id="about-heading">What it catches</h2>
+      <ul class="app-features">
+        <li>Zero‑width: U+200B, U+200C, U+200D, U+FEFF, soft hyphen U+00AD</li>
+        <li>Bidi controls: LRM/RLM/LRE/RLE/LRO/RLO/PDF</li>
+        <li>ASCII confusables: Cyrillic/Greek lookalikes for a–z, A–Z, 0–9</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Manoj (Manu) Palasamudram. Invisible Inspector.</p>
+    </footer>
+  </main>
+
+  <script src="/apps/invisible-inspector.js" defer></script>
+</body>
+<!-- Minimal inline confusables set sourced from public Unicode data and condensed for this tool. -->
+</html>
+
+
