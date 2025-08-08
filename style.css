@@ -65,6 +65,13 @@ body {
     padding: var(--space-lg) var(--space-md);
 }
 
+/* Wide container for app galleries */
+.container-wide {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: var(--space-md);
+}
+
 /* Typography */
 h1 {
     font-size: 3rem;
