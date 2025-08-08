@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Timestamp Converter – epoch, ISO, relative.">
+  <title>Timestamp Converter | Mini App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../apps/apps.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="top-nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="../index.html">Portfolio</a>
+      <a href="../apps.html">Mini Apps</a>
+      <span aria-hidden="true">/</span>
+      <span>Timestamp Converter</span>
+    </div>
+  </nav>
+
+  <main id="main" class="container" role="main">
+    <header class="hero">
+      <h1>Timestamp Converter</h1>
+      <p class="title">Convert between epoch seconds/ms and ISO; show relative time.</p>
+    </header>
+
+    <section class="app-layout" aria-labelledby="tool-heading">
+      <h2 id="tool-heading">Converter</h2>
+      <div class="app-controls">
+        <input id="t-input" type="text" placeholder="Epoch seconds/ms or ISO date" style="flex:1; min-width:280px; padding:8px 12px; border:1px solid var(--accent-border); border-radius:8px;">
+        <button class="btn" id="t-now">Now</button>
+        <button class="btn" id="t-clear">Clear</button>
+      </div>
+      <div class="panel">
+        <header>Results</header>
+        <table class="kv-table" id="t-results"></table>
+        <div class="meta" id="t-meta">—</div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Manoj (Manu) Palasamudram. Timestamp Converter.</p>
+    </footer>
+  </main>
+
+  <script src="./timestamp-converter.js" defer></script>
+</body>
+</html>
+
+

@@ -32,7 +32,7 @@
     /* Layout */
     --max-width: 900px;
     --border-radius: 12px;
-    --section-spacing: 80px;
+    --section-spacing: 56px;
 }
 
 * {
@@ -62,7 +62,7 @@ body {
 .container {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: var(--space-xl) var(--space-lg);
+    padding: var(--space-lg) var(--space-md);
 }
 
 /* Typography */
@@ -121,8 +121,8 @@ a:hover {
 /* Hero Section */
 .hero {
     text-align: left;
-    margin-bottom: var(--space-xxl);
-    padding: var(--space-xxl) 0;
+    margin-bottom: var(--space-xl);
+    padding: var(--space-xl) 0;
     border-bottom: 1px solid var(--accent-border);
 }
 
@@ -242,7 +242,7 @@ section {
     background: var(--bg-primary);
     border: 1px solid var(--accent-border);
     border-radius: var(--border-radius);
-    padding: var(--space-lg);
+    padding: var(--space-md);
     transition: all 0.3s ease;
 }
 

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JWT Decoder – decode header and payload.">
+  <title>JWT Decoder | Mini App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../apps/apps.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="top-nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="../index.html">Portfolio</a>
+      <a href="../apps.html">Mini Apps</a>
+      <span aria-hidden="true">/</span>
+      <span>JWT Decoder</span>
+    </div>
+  </nav>
+
+  <main id="main" class="container" role="main">
+    <header class="hero">
+      <h1>JWT Decoder</h1>
+      <p class="title">Decode header and payload safely (no signature verification).</p>
+    </header>
+
+    <section class="app-layout" aria-labelledby="tool-heading">
+      <h2 id="tool-heading">Token</h2>
+      <div class="app-controls">
+        <input id="jwt-input" type="text" placeholder="Paste JWT…" style="flex:1; min-width:260px; padding:8px 12px; border:1px solid var(--accent-border); border-radius:8px;">
+        <button class="btn" id="clear-jwt">Clear</button>
+      </div>
+      <div class="app-io">
+        <div class="panel">
+          <header>Header</header>
+          <pre id="jwt-header"></pre>
+          <div class="meta" id="header-meta">—</div>
+        </div>
+        <div class="panel">
+          <header>Payload</header>
+          <pre id="jwt-payload"></pre>
+          <div class="meta" id="payload-meta">—</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Manoj (Manu) Palasamudram. JWT Decoder.</p>
+    </footer>
+  </main>
+
+  <script src="./jwt-decoder.js" defer></script>
+</body>
+</html>
+
+

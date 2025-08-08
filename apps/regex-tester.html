@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Regex Tester – test patterns and flags.">
+  <title>Regex Tester | Mini App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../apps/apps.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="top-nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="../index.html">Portfolio</a>
+      <a href="../apps.html">Mini Apps</a>
+      <span aria-hidden="true">/</span>
+      <span>Regex Tester</span>
+    </div>
+  </nav>
+
+  <main id="main" class="container" role="main">
+    <header class="hero">
+      <h1>Regex Tester</h1>
+      <p class="title">Test a pattern with flags and highlight matches.</p>
+    </header>
+
+    <section class="app-layout" aria-labelledby="tool-heading">
+      <h2 id="tool-heading">Tester</h2>
+      <div class="app-controls">
+        <input id="re-pattern" type="text" placeholder="Pattern (without / /)" style="flex:2; min-width:200px; padding:8px 12px; border:1px solid var(--accent-border); border-radius:8px;">
+        <input id="re-flags" type="text" placeholder="Flags (e.g. gim)" style="width:120px; padding:8px 12px; border:1px solid var(--accent-border); border-radius:8px;">
+        <button class="btn" id="re-clear">Clear</button>
+      </div>
+      <div class="app-io">
+        <div class="panel">
+          <header>Input</header>
+          <textarea id="re-input" placeholder="Paste text…"></textarea>
+          <div class="meta" id="re-meta">—</div>
+        </div>
+        <div class="panel">
+          <header>Matches</header>
+          <div id="re-output" style="padding:12px; min-height:240px;"></div>
+          <div class="meta" id="re-count">0 matches</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Manoj (Manu) Palasamudram. Regex Tester.</p>
+    </footer>
+  </main>
+
+  <script src="./regex-tester.js" defer></script>
+</body>
+</html>
+
+

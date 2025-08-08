@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JSON Diff – structural compare of two JSON values.">
+  <title>JSON Diff | Mini App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../apps/apps.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="top-nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="../index.html">Portfolio</a>
+      <a href="../apps.html">Mini Apps</a>
+      <span aria-hidden="true">/</span>
+      <span>JSON Diff</span>
+    </div>
+  </nav>
+
+  <main id="main" class="container" role="main">
+    <header class="hero">
+      <h1>JSON Diff</h1>
+      <p class="title">Structural diff of two JSON values.</p>
+    </header>
+
+    <section class="app-layout" aria-labelledby="tool-heading">
+      <h2 id="tool-heading">Diff</h2>
+      <div class="app-io">
+        <div class="panel">
+          <header>A</header>
+          <textarea id="a"></textarea>
+          <div class="meta" id="meta-a">—</div>
+        </div>
+        <div class="panel">
+          <header>B</header>
+          <textarea id="b"></textarea>
+          <div class="meta" id="meta-b">—</div>
+        </div>
+      </div>
+      <div class="app-controls">
+        <button class="btn primary" id="diff">Diff</button>
+        <button class="btn" id="swap">Swap</button>
+        <button class="btn" id="clear">Clear</button>
+      </div>
+      <div class="panel">
+        <header>Result</header>
+        <pre id="out"></pre>
+        <div class="meta" id="meta-out">—</div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Manoj (Manu) Palasamudram. JSON Diff.</p>
+    </footer>
+  </main>
+
+  <script src="./json-diff.js" defer></script>
+</body>
+</html>
+
+

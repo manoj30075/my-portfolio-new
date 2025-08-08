@@ -80,4 +80,14 @@
 
 @media (max-width: 900px) { .app-io { grid-template-columns: 1fr; } }
 
+/* Key-value table */
+.kv-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.kv-table th, .kv-table td { border-top: 1px solid var(--accent-border); padding: 8px 10px; text-align: left; }
+.kv-table th { color: var(--text-muted); font-weight: 600; width: 200px; }
+.kv-table tr:hover td { background: var(--bg-secondary); }
+
+/* Small sample swatch for contrast checker */
+.contrast-sample { display: grid; grid-template-columns: 1fr; gap: 8px; border: 1px solid var(--accent-border); border-radius: 8px; padding: 12px; }
+.contrast-preview { border-radius: 6px; padding: 12px; font-weight: 600; display: inline-block; }
+
 
