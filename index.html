@@ -5,16 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Manoj (Manu) Palasamudram - Software Engineer | Developer Tools Expert | React, TypeScript, Python">
     <meta name="keywords" content="Software Engineer, Developer Tools, VSCode Extensions, JupyterLab Extensions, React Developer, TypeScript, Seattle">
+    <meta name="theme-color" content="#000000">
+    <link rel="canonical" href="https://www.manojp.me">
+    <!-- Lightweight SVG favicon to avoid 404s -->
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="12" fill="black"/><text x="50" y="58" font-size="52" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif">M</text></svg>'>
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Manoj Palasamudram | Software Engineer">
+    <meta property="og:description" content="Software Engineer focused on developer tools, React, TypeScript, Python. 200+ developers served, measurable productivity gains.">
+    <meta property="og:url" content="https://www.manojp.me">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Manoj Palasamudram | Software Engineer">
+    <meta name="twitter:description" content="Developer Tools, React, TypeScript, Python. LSEG & Vymo experience.">
     <title>Manoj Palasamudram | Software Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Manoj (Manu) Palasamudram",
+      "jobTitle": "Software Engineer",
+      "url": "https://www.manojp.me",
+      "email": "mailto:manojpls@icloud.com",
+      "sameAs": [
+        "https://github.com/manoj30075",
+        "https://www.linkedin.com/in/manojpls"
+      ]
+    }
+    </script>
 </head>
 <body>
-    <div class="container">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav class="top-nav" aria-label="Primary">
+        <div class="nav-inner">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+            <a href="#education">Education</a>
+        </div>
+    </nav>
+    <main id="main" class="container" role="main">
         <!-- Hero Section -->
-        <header class="hero">
+        <header class="hero" id="home">
             <h1>Manoj (Manu) Palasamudram</h1>
             <p class="title">Software Engineer | Full-Stack Developer</p>
             <div class="hero-details">
@@ -28,14 +68,14 @@
         </header>
 
         <!-- About Section -->
-        <section class="about">
-            <h2>About</h2>
+        <section class="about" id="about" aria-labelledby="about-heading">
+            <h2 id="about-heading">About</h2>
             <p>Software Engineer with 4+ years building scalable products and developer productivity tools. Expert in full-stack development with specialization in React, TypeScript, and Python. Proven track record architecting developer tools serving 200+ users at LSEG and enterprise applications scaling to 1M+ daily active users at Vymo. Strong expertise in system design, microservices architecture, and modern development practices.</p>
         </section>
 
         <!-- Experience Section -->
-        <section class="experience">
-            <h2>Experience</h2>
+        <section class="experience" id="experience" aria-labelledby="experience-heading">
+            <h2 id="experience-heading">Experience</h2>
             
             <div class="job">
                 <div class="job-header">
@@ -68,8 +108,8 @@
         </section>
 
         <!-- Projects Section -->
-        <section class="projects">
-            <h2>Projects</h2>
+        <section class="projects" id="projects" aria-labelledby="projects-heading">
+            <h2 id="projects-heading">Projects</h2>
             
             <div class="project-grid">
                 <div class="project-card">
@@ -88,7 +128,7 @@
                     <p class="project-meta">Sep 2024 • React, TypeScript, OpenAI API</p>
                     <p>Interactive scenario exploration tool with optimized backend. Sub-300ms response times with optimized caching and CI/CD pipeline.</p>
                     <div class="project-links">
-                        <a href="https://the-road-not-taken.netlify.app/" target="_blank">View Live →</a>
+                        <a href="https://the-road-not-taken.netlify.app/" target="_blank" rel="noopener noreferrer">View Live →</a>
                     </div>
                     <div class="project-tags">
                         <span class="tag">Web Development</span>
@@ -100,8 +140,8 @@
         </section>
 
         <!-- Skills Section -->
-        <section class="skills">
-            <h2>Technical Skills</h2>
+        <section class="skills" id="skills" aria-labelledby="skills-heading">
+            <h2 id="skills-heading">Technical Skills</h2>
             
             <div class="skills-grid">
                 <div class="skill-group">
@@ -147,22 +187,22 @@
         </section>
 
         <!-- Contact & Education Section -->
-        <section class="contact-education">
+        <section class="contact-education" id="contact-education" aria-labelledby="contact-heading">
             <div class="contact-edu-grid">
-                <div class="contact">
-                    <h2>Contact</h2>
+                <div class="contact" id="contact">
+                    <h2 id="contact-heading">Contact</h2>
                     <div class="contact-info">
                         <p><strong>Email:</strong> <a href="mailto:manojpls@icloud.com">manojpls@icloud.com</a></p>
                         <p><strong>Phone:</strong> <a href="tel:+15855379175">(585) 537-9175</a></p>
                         <p><strong>Location:</strong> Buffalo, NY (Open to Remote)</p>
-                        <p><strong>GitHub:</strong> <a href="https://github.com/manoj30075" target="_blank">github.com/manoj30075</a></p>
-                        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/manojpls" target="_blank">linkedin.com/in/manojpls</a></p>
-                        <p><strong>Portfolio:</strong> <a href="https://www.manojp.me" target="_blank">manojp.me</a></p>
+                        <p><strong>GitHub:</strong> <a href="https://github.com/manoj30075" target="_blank" rel="noopener noreferrer">github.com/manoj30075</a></p>
+                        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/manojpls" target="_blank" rel="noopener noreferrer">linkedin.com/in/manojpls</a></p>
+                        <p><strong>Portfolio:</strong> <a href="https://www.manojp.me" target="_blank" rel="noopener noreferrer">manojp.me</a></p>
                     </div>
                 </div>
 
-                <div class="education">
-                    <h2>Education</h2>
+                <div class="education" id="education">
+                    <h2 id="education-heading">Education</h2>
                     <div class="edu-item">
                         <h4>Master of Science in Computer Science</h4>
                         <p class="institution">Rochester Institute of Technology</p>
@@ -182,7 +222,7 @@
             <p>&copy; 2024 Manoj (Manu) Palasamudram. Available for Software Engineer roles.</p>
             <p class="status">Ready to build scalable, high-performance applications • <span id="current-time"></span></p>
         </footer>
-    </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
