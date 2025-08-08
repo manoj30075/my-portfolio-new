@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HTTP Header Diff – compare two header blocks.">
+  <title>HTTP Header Diff | Mini App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../apps/apps.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="top-nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="../index.html">Portfolio</a>
+      <a href="../apps.html">Mini Apps</a>
+      <span aria-hidden="true">/</span>
+      <span>HTTP Header Diff</span>
+    </div>
+  </nav>
+
+  <main id="main" class="container" role="main">
+    <header class="hero">
+      <h1>HTTP Header Diff</h1>
+      <p class="title">Compare two raw header blocks. Highlights added, removed, and changed values.</p>
+    </header>
+
+    <section class="app-layout" aria-labelledby="tool-heading">
+      <h2 id="tool-heading">Diff</h2>
+      <div class="app-controls">
+        <button class="btn primary" id="diff-btn">Diff</button>
+        <button class="btn" id="swap-btn">Swap</button>
+        <button class="btn" id="clear-btn">Clear</button>
+      </div>
+      <div class="app-io">
+        <div class="panel">
+          <header>Headers A</header>
+          <textarea id="headers-a" placeholder="Paste raw headers here (one per line, name: value)"></textarea>
+          <div class="meta" id="meta-a">0 headers</div>
+        </div>
+        <div class="panel">
+          <header>Headers B</header>
+          <textarea id="headers-b" placeholder="Paste raw headers here (one per line, name: value)"></textarea>
+          <div class="meta" id="meta-b">0 headers</div>
+        </div>
+      </div>
+      <div class="panel">
+        <header>Result</header>
+        <pre id="result" aria-live="polite"></pre>
+        <div class="meta" id="meta-result">—</div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Manoj (Manu) Palasamudram. HTTP Header Diff.</p>
+    </footer>
+  </main>
+
+  <script src="./header-diff.js" defer></script>
+</body>
+</html>
+
+
