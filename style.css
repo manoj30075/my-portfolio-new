@@ -510,7 +510,7 @@ section { padding: var(--space-lg) 0; position: relative; }
 /* ── projects ──────────────────────────────────────────────── */
 .project-wall {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
   gap: 22px;
   padding-top: 10px;
 }
@@ -800,6 +800,7 @@ footer .status { color: var(--accent); }
   .job-header { grid-template-columns: 1fr; }
   .job-header .period { grid-row: auto; grid-column: 1; text-align: left; }
   .section-head h2 { font-size: 44px; }
+  .project-wall { grid-template-columns: 1fr; }
   .log-row { grid-template-columns: 70px 1fr; }
   .log-row .state { grid-column: 1 / -1; text-align: left; }
   .hero .ann { display: none; }
